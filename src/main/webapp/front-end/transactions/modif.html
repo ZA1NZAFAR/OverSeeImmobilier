@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Gestion des transsactions</title>
+      <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+         <form>
+                <button type="submit" id="logOut" >Se déconnecter</button>
+            </form>
+      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
+         <center>
+             <h1> Modification d'une transaction</h1>
+        </center>
+        <div id="cadre">
+        <div id="formulaire">
+           
+        <form>
+            <label id="lbl_ref">Référencce du bien</label>
+            <select name="list_ref">
+            <option>Appartement</option>
+            <option>Maison</option>
+            </select>
+             <br/>
+            
+             
+            <label id="lbl_prop">Proprietaire</label>
+             <select name="list_prop">
+            <option>prop1</option>
+            <option>prop2</option>
+            </select>
+              <br/>
+            
+             <label id="lbl_client">Client</label>
+             <select name="list_client">
+            <option>client1</option>
+            <option>client2</option>
+            </select>
+              <br/>
+            
+             <label id="lbl_type">Type de transaction</label>
+            <select name="list_type">
+            <option>Achat</option>
+            <option>Location</option>
+            </select>
+             <br/>
+           
+        
+         
+            <label id="lbl_prixInit">Prix du bien</label>
+            <input type="text" id="tf_prixInit" value=300>
+              <br/>
+            <label id="lbl_prixVente">Prix de vente</label>
+            <input type="text" id="tf_prixVente" value=400>
+              <br/>
+            
+            <label id="lbl_commission">Commision</label>
+            <input type="text" id="tf_commision" value=100>
+              <br/>
+            
+            <label id="lbl_dispo">Date de la vente</label>
+            <input type="date" id="date" name="date" value="2022-06-01">
+            <br/>
+               <center>
+                    <button type="submit" >Modifier une transaction</button>
+            </center>
+        </form>
+        </div>
+        </div>
+
+    </body>
+</html>
