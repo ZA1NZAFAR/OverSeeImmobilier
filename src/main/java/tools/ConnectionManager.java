@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
     private String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private String CONNECTION_URL = "jdbc:mysql://localhost:3306/oversee?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private String DB_USERNAME = "zz";
-    private String DB_PASSWORD = "ln1gRC3qA-Aw51tF";
+    private String CONNECTION_URL = "jdbc:mysql://remotemysql.com:3306/4g7LpRXOWZ?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private String DB_USERNAME = "4g7LpRXOWZ";
+    private String DB_PASSWORD = "2q6pXfV3DP";
 
     public Connection getConnection() throws SQLException {
         try {
