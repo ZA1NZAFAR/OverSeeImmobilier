@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Gestion des biens</title>
+      <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+         <form action="" method="post">
+                <button type="submit" id="logOut" >Se déconnecter</button>
+            </form>
+      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
+         <center>
+             <h1>Modification du bien</h1>
+        </center>
+        <div id="cadre">
+        <div id="formulaire">
+           
+        <form action="" method="post">
+            <label id="lbl_type">Type du bien</label>
+            <select name="list_type">
+            <option>Appartement</option>
+            <option>Maison</option>
+            </select>
+             <br/>
+            
+            <label id="lbl_nbPiece">Nombre de pièce</label>
+            <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100" value="2" />
+                <br/>
+            <label id="lbl_superficie">Superficie</label>
+            <input type="text" id="tf_superficie" value=30>
+              <br/>
+            
+            <label id="lbl_etatHab">Etat d'habitation</label>
+             <select name="list_type">
+            <option>Bon état</option>
+            <option>Neuf</option>
+            <option>Très bon état</option>
+            </select>
+              <br/>
+            
+            <label id="lbl_garage">Garage</label>
+            <input type="number" id="stepper_garage" name="stepper_garage" min="0" max="10" value="0" />
+              <br/>
+            <label id="lbl_prop">Proprietaire</label>
+             <select name="list_prop">
+            <option> </option>
+            <option>prop1</option>
+            <option>prop2</option>
+            </select>
+              <br/>
+            <label id="lbl_adr">Adresse</label>
+            <input type="text" id="tf_adr" value="2 rue malou">
+              <br/>
+            <label id="lbl_cp">Code postal</label>
+            <input type="text" id="tf_cp" value="06230">
+              <br/>
+            
+            <label id="lbl_ville">Ville</label>
+            <input type="text" id="tf_ville" value="Nice">
+              <br/>
+            
+            <label id="lbl_dispo">Disponibilité</label>
+            <input type="date" id="date" name="date" value="2022-06-01">
+            <br/>
+               <center>
+                    <button type="submit" >Ajouter un bien</button>
+            </center>
+        </form>
+        </div>
+        </div>
+
+    </body>
+</html>

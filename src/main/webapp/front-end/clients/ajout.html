@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Gestion des clients</title>
+      <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+         <form action="" method="post">
+                <button type="submit" id="logOut" >Se déconnecter</button>
+            </form>
+      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
+        <center>        
+            <h1> Ajout d'un client</h1>
+        </center>
+        <div id="cadre">
+        <div id="formulaire">
+
+        <form action="" method="post">
+            <label id="lbl_nom">Nom</label>
+            <input type="text" id="tf_nom">
+              <br/>
+            <label id="lbl_prenom">Prénom</label>
+            <input type="text" id="tf_prenom">
+              <br/>
+            
+            <label id="lbl_adr">Adresse</label>
+            <input type="text" id="tf_adr">
+              <br/>
+            <label id="lbl_cp">Code postal</label>
+            <input type="text" id="tf_cp">
+              <br/>
+            
+            <label id="lbl_ville">Ville</label>
+            <input type="text" id="tf_ville">
+              <br/>
+            
+             <label id="lbl_tel">Telephone</label>
+            <input type="text" id="tf_tel">
+              <br/>
+            
+                <label id="lbl_nbVente">Nombre d'achat</label>
+            <input type="number" id="stepper_nbVente" name="stepper_nbVente" min="1" max="100" value="0" />
+                <br/>
+              <label id="lbl_nbLocatif">Nombre de location</label>
+            <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0" />
+                <br/>
+               <center>
+                    <button type="submit" >Ajouter un client</button>
+            </center>
+        </form>
+        </div>
+        </div>
+
+    </body>
+</html>

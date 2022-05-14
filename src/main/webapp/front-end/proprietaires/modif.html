@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Gestion des proprietaires</title>
+      <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+         <form action="" method="post">
+                <button type="submit" id="logOut" >Se déconnecter</button>
+            </form>
+      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
+        <center>        
+            <h1> Modification d'un proprietaire</h1>
+        </center>
+        <div id="cadre">
+        <div id="formulaire">
+           
+        <form action="" method="post">
+            <label id="lbl_nom">Nom</label>
+            <input type="text" id="tf_nom" value="Zafar">
+              <br/>
+            <label id="lbl_prenom">Prénom</label>
+            <input type="text" id="tf_prenom" value="Zain">
+              <br/>
+            
+            <label id="lbl_adr">Adresse</label>
+            <input type="text" id="tf_adr" value="monAdresse">
+              <br/>
+            <label id="lbl_cp">Code postal</label>
+            <input type="text" id="tf_cp" value="codeP">
+              <br/>
+            
+            <label id="lbl_ville">Ville</label>
+            <input type="text" id="tf_ville" value="Paris">
+              <br/>
+              <label id="lbl_nbVente">Nombre de proprieté mis en vente</label>
+            <input type="number" id="stepper_nbVente" name="stepper_nbVente" min="1" max="100" value="0" />
+                <br/>
+              <label id="lbl_nbLocatif">Nombre de  proprieté mis en location</label>
+            <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0" />
+                <br/>
+               <center>
+                    <button type="submit" >Modifier un proprietaire</button>
+            </center>
+        </form>
+        </div>
+        </div>
+
+    </body>
+</html>

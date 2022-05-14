@@ -1,0 +1,113 @@
+body{
+    background-size: 100% 100%;
+}
+table{
+	border: 3px solid white; /* Bordure du tableau double et bleue */
+	margin: auto; /* Centrer horizontalement le tableau */
+	border-collapse: collapse; /* éviter d'avoir un quadrillage double */
+	margin: 3vw auto;
+	text-align: center;
+    font-size: 1vw;
+    
+
+}
+thead { /* Les cellules d'en-têtes */
+	border: 0.2vw solid #40a0ff;
+	color: white;
+	
+	background-color: #40a0ff;
+	margin:0;
+	
+	
+}
+thead th{
+	padding: 1.5vh 2vw;
+}
+
+button{
+	background-color:white;
+	border:1px solid #000; 
+	border-radius: 2vw;
+	padding:1.5vw;
+	margin: 1vw;
+}
+button:hover{
+	background-color:#40a0ff;
+}
+
+#droite{
+	float: right;
+	display: flex;
+}
+#cadre{
+    border: 3px solid;
+    border-color: white;
+    border-width: 5vw;
+    width: 90vw;
+    font-family: Tahoma;
+    
+}
+
+#formulaire{
+    border: 3px solid white ;
+    border-width: 2vw;
+    font-family: Tahoma;
+    background-color:#77B5FE;
+    padding: 5vw;
+    
+    
+}
+
+#formulaire label{
+    color: white;
+    position: relative;
+    top: 10px;
+    left: 30%;
+    font-size: 1.3vw;
+    padding: 25px;
+    width: 10vw;
+    
+    
+}
+
+#formulaire input, #formulaire select{
+    position: relative;
+    top: -10px;
+    left: 50%;
+    display: flex;
+     width: 10vw;
+
+    
+}
+#formulaire p{
+    font-size: 2vw;
+    color:#40a0ff;
+    text-align: center;
+    
+}
+
+#logOut{
+    border: none;
+    float: right;
+    font-size: 2vw;
+  
+ 
+    
+    
+}
+
+#logOut:hover{
+    background-color:white;
+    text-decoration:underline;
+    
+}
+
+h1{
+    font-size: 3vw;
+    position: relative;
+    top: 7vw;
+    text-decoration: underline;
+    text-underline-offset: 0.5vw;
+    font-weight: 1;
+}
+
