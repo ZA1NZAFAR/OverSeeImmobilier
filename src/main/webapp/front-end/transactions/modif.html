@@ -7,7 +7,7 @@
     </head>
     <body>
          <form action="" method="post">
-                <button type="submit" id="logOut" >Se déconnecter</button>
+             <input type="submit" name="logOut" id="logOut" value="Se déconnecter">
             </form>
       <a href="../accueil.html"><img src="../images/logo.png" /> </a>
          <center>
@@ -18,7 +18,7 @@
            
         <form action="" method="post">
             <label id="lbl_ref">Référencce du bien</label>
-            <select name="list_ref">
+            <select name="list_ref" id="list_ref">
             <option>Appartement</option>
             <option>Maison</option>
             </select>
@@ -26,21 +26,21 @@
             
              
             <label id="lbl_prop">Proprietaire</label>
-             <select name="list_prop">
+             <select name="list_prop" id="list_prop">
             <option>prop1</option>
             <option>prop2</option>
             </select>
               <br/>
             
              <label id="lbl_client">Client</label>
-             <select name="list_client">
+             <select name="list_client" id="list_client">
             <option>client1</option>
             <option>client2</option>
             </select>
               <br/>
             
              <label id="lbl_type">Type de transaction</label>
-            <select name="list_type">
+            <select name="list_type" id="list_type">
             <option>Achat</option>
             <option>Location</option>
             </select>
@@ -49,22 +49,22 @@
         
          
             <label id="lbl_prixInit">Prix du bien</label>
-            <input type="text" id="tf_prixInit" value=300>
+            <input type="text" id="tf_prixInit" name="tf_prixInit" value=300>
               <br/>
             <label id="lbl_prixVente">Prix de vente</label>
-            <input type="text" id="tf_prixVente" value=400>
+            <input type="text" id="tf_prixVente" name="tf_prixVente" value=400>
               <br/>
             
             <label id="lbl_commission">Commision</label>
-            <input type="text" id="tf_commision" value=100>
+            <input type="text" id="tf_commision" name="tf_commision" value=100>
               <br/>
             
             <label id="lbl_dispo">Date de la vente</label>
             <input type="date" id="date" name="date" value="2022-06-01">
             <br/>
                <center>
-                    <button type="submit" >Modifier une transaction</button>
-            </center>
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Modifier une transaction">
+               </center>
         </form>
         </div>
         </div>

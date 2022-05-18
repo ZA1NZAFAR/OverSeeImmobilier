@@ -7,7 +7,7 @@
     </head>
     <body>
          <form action="" method="post">
-                <button type="submit" id="logOut" >Se déconnecter</button>
+             <input type="submit" name="logOut" id="logOut" value="Se déconnecter">
             </form>
       <a href="../accueil.html"><img src="../images/logo.png" /> </a>
         <center>          <h1> Ajout d'un bien</h1>
@@ -17,7 +17,7 @@
            
         <form action="" method="post">
             <label id="lbl_type">Type du bien</label>
-            <select name="list_type">
+            <select name="listT_biens" id="listT_biens">
             <option> </option>
             <option>Appartement</option>
             <option>Maison</option>
@@ -28,11 +28,11 @@
             <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100" value="1" />
                 <br/>
             <label id="lbl_superficie">Superficie</label>
-            <input type="text" id="tf_superficie">
+            <input type="text" id="tf_superficie" name="tf_superficie">
               <br/>
             
             <label id="lbl_etatHab">Etat d'habitation</label>
-             <select name="list_type">
+             <select name="list_type" id="list_type">
             <option> </option>
             <option>Neuf</option>
             <option>Très bon état</option>
@@ -44,7 +44,7 @@
             <input type="number" id="stepper_garage" name="stepper_garage" min="0" max="10" value="0" />
               <br/>
             <label id="lbl_prop">Proprietaire</label>
-             <select name="list_prop">
+             <select name="list_prop" id="list_prop">
             <option> </option>
             <option>prop1</option>
             <option>prop2</option>
@@ -53,22 +53,22 @@
 
               <br/>
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr">
+            <input type="text" id="tf_adr" name="tf_adr">
               <br/>
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp">
+            <input type="text" id="tf_cp" name="tf_cp">
               <br/>
             
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville">
+            <input type="text" id="tf_ville" name="tf_ville">
               <br/>
             
             <label id="lbl_dispo">Disponibilité</label>
             <input type="date" id="date" name="date">
             <br/>
                <center>
-                    <button type="submit" >Ajouter un bien</button>
-            </center>
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un bien">
+               </center>
         </form>
         </div>
         </div>

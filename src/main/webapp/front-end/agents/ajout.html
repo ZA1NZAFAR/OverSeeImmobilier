@@ -1,77 +1,59 @@
 <!doctype html>
 <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Gestion des biens</title>
-      <link rel="stylesheet" href="../css/style.css">
-    </head>
-    <body>
-         <form action="" method="post">
-                <button type="submit" id="logOut" >Se déconnecter</button>
-            </form>
-      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
-        <center>          <h1> Ajout d'un bien</h1>
+<head>
+    <meta charset="utf-8">
+    <title>Gestion des agents</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<form action="" method="post">
+    <input type="submit" name="logOut" id="logOut" value="Se déconnecter">
+</form>
+<a href="../accueil.html"><img src="../images/logo.png" /> </a>
+<center>
+    <h1> Ajout d'un agent</h1>
 </center>
-        <div id="cadre">
-        <div id="formulaire">
-           
-        <form action="" method="post">
-            <label id="lbl_type">Type du bien</label>
-            <select name="list_type">
-            <option> </option>
-            <option>Appartement</option>
-            <option>Maison</option>
-            </select>
-             <br/>
-            
-            <label id="lbl_nbPiece">Nombre de pièce</label>
-            <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100" value="1" />
-                <br/>
-            <label id="lbl_superficie">Superficie</label>
-            <input type="text" id="tf_superficie">
-              <br/>
-            
-            <label id="lbl_etatHab">Etat d'habitation</label>
-             <select name="list_type">
-            <option> </option>
-            <option>Neuf</option>
-            <option>Très bon état</option>
-            <option>Bon état</option>
-            </select>
-              <br/>
-            
-            <label id="lbl_garage">Garage</label>
-            <input type="number" id="stepper_garage" name="stepper_garage" min="0" max="10" value="0" />
-              <br/>
-            <label id="lbl_prop">Proprietaire</label>
-             <select name="list_prop">
-            <option> </option>
-            <option>prop1</option>
-            <option>prop2</option>
-            </select>
-            <a href="../proprietaires/ajout.html" target="_self" style="font-size:1.5vw; position: relative; left:55vw; bottom:3.3vw;">Ajouter un proprietaire</a>
+<div id="cadre">
+    <div id="formulaire">
 
-              <br/>
+        <form action="" method="post">
+            <label id="lbl_nom">Nom</label>
+            <input type="text" id="tf_nom" name="tf_nom">
+            <br/>
+            <label id="lbl_prenom">Prénom</label>
+            <input type="text" id="tf_prenom" name="tf_prenom">
+            <br/>
+
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr">
-              <br/>
+            <input type="text" id="tf_adr" name="tf_adr">
+            <br/>
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp">
-              <br/>
-            
+            <input type="text" id="tf_cp" name="tf_cp">
+            <br/>
+
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville">
-              <br/>
-            
-            <label id="lbl_dispo">Disponibilité</label>
+            <input type="text" id="tf_ville" name="tf_ville">
+            <br/>
+
+            <label id="lbl_embauche">Date d'embauche</label>
             <input type="date" id="date" name="date">
             <br/>
-               <center>
-                    <button type="submit" >Ajouter un bien</button>
+
+            <label id="lbl_salaire">Salaire</label>
+            <input type="text" id="tf_salaire" name="tf_salaire">
+            <br/>
+
+            <label id="lbl_admin">Administrateur ? </label>
+            <input type="checkbox" id="admin" name="admin" >
+            <br/>
+
+            <center>
+                <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un agent">
+
             </center>
         </form>
-        </div>
-        </div>
+    </div>
+</div>
 
-    </body>
+</body>
 </html>

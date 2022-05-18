@@ -7,7 +7,7 @@
     </head>
     <body>
          <form action="" method="post">
-                <button type="submit" id="logOut" >Se déconnecter</button>
+             <input type="submit" name="logOut" id="logOut" value="Se déconnecter">
             </form>
       <a href="../accueil.html"><img src="../images/logo.png" /> </a>
         <center>        
@@ -17,26 +17,26 @@
         <div id="formulaire">
            
         <form action="" method="post">
-            <label id="lbl_nom">Nom</label>
-            <input type="text" id="tf_nom">
+            <label id="lbl_nom" name="lbl_nom">Nom</label>
+            <input type="text" id="tf_nom" name="tf_nom">
               <br/>
             <label id="lbl_prenom">Prénom</label>
-            <input type="text" id="tf_prenom">
+            <input type="text" id="tf_prenom" name="tf_prenom">
               <br/>
             
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr">
+            <input type="text" id="tf_adr" name="tf_adr">
               <br/>
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp">
+            <input type="text" id="tf_cp" name="tf_cp">
               <br/>
             
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville">
+            <input type="text" id="tf_ville" name="tf_ville">
               <br/>
             
              <label id="lbl_tel">Telephone</label>
-            <input type="text" id="tf_tel">
+            <input type="text" id="tf_tel" name="tf_tel">
               <br/>
             
               <label id="lbl_nbVente">Nombre de proprieté mis en vente</label>
@@ -46,7 +46,8 @@
             <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0" />
                 <br/>
                <center>
-                    <button type="submit" >Ajouter un proprietaire</button>
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un proprietaire">
+
             </center>
         </form>
         </div>

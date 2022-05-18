@@ -3,7 +3,6 @@ body{
 }
 table{
 	border: 3px solid white; /* Bordure du tableau double et bleue */
-	margin: auto; /* Centrer horizontalement le tableau */
 	border-collapse: collapse; /* éviter d'avoir un quadrillage double */
 	margin: 3vw auto;
 	text-align: center;
@@ -24,14 +23,14 @@ thead th{
 	padding: 1.5vh 2vw;
 }
 
-button{
+button,input[type=submit]{
 	background-color:white;
 	border:1px solid #000; 
 	border-radius: 2vw;
 	padding:1.5vw;
 	margin: 1vw;
 }
-button:hover{
+button:hover,input[type=submit]:hover{
 	background-color:#40a0ff;
 }
 

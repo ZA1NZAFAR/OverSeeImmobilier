@@ -7,7 +7,7 @@
     </head>
     <body>
          <form action="" method="post">
-                <button type="submit" id="logOut" >Se déconnecter</button>
+             <input type="submit" name="logOut" id="logOut" value="Se déconnecter">
             </form>
       <a href="../accueil.html"><img src="../images/logo.png" /> </a>
          <center>
@@ -18,7 +18,7 @@
            
         <form action="" method="post">
             <label id="lbl_type">Type du bien</label>
-            <select name="list_type">
+            <select name="listT_biens" name="listT_biens">
             <option>Appartement</option>
             <option>Maison</option>
             </select>
@@ -28,11 +28,11 @@
             <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100" value="2" />
                 <br/>
             <label id="lbl_superficie">Superficie</label>
-            <input type="text" id="tf_superficie" value=30>
+            <input type="text" id="tf_superficie" name="tf_superficie" value=30>
               <br/>
             
             <label id="lbl_etatHab">Etat d'habitation</label>
-             <select name="list_type">
+             <select name="list_type" id="list_type">
             <option>Bon état</option>
             <option>Neuf</option>
             <option>Très bon état</option>
@@ -43,28 +43,28 @@
             <input type="number" id="stepper_garage" name="stepper_garage" min="0" max="10" value="0" />
               <br/>
             <label id="lbl_prop">Proprietaire</label>
-             <select name="list_prop">
+             <select name="list_prop" id="list_prop">
             <option> </option>
             <option>prop1</option>
             <option>prop2</option>
             </select>
               <br/>
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr" value="2 rue malou">
+            <input type="text" id="tf_adr" name="tf_adr" value="2 rue malou">
               <br/>
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp" value="06230">
+            <input type="text" id="tf_cp" name="tf_cp" value="06230">
               <br/>
             
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville" value="Nice">
+            <input type="text" id="tf_ville" name="tf_ville" value="Nice">
               <br/>
             
             <label id="lbl_dispo">Disponibilité</label>
             <input type="date" id="date" name="date" value="2022-06-01">
             <br/>
                <center>
-                    <button type="submit" >Ajouter un bien</button>
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Modifier le bien">
             </center>
         </form>
         </div>
