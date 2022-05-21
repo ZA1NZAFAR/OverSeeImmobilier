@@ -3,7 +3,6 @@ body{
 }
 table{
 	border: 3px solid white; /* Bordure du tableau double et bleue */
-	margin: auto; /* Centrer horizontalement le tableau */
 	border-collapse: collapse; /* éviter d'avoir un quadrillage double */
 	margin: 3vw auto;
 	text-align: center;
@@ -24,15 +23,22 @@ thead th{
 	padding: 1.5vh 2vw;
 }
 
-button{
+
+button,input[type=submit]{
 	background-color:white;
 	border:1px solid #000; 
 	border-radius: 2vw;
 	padding:1.5vw;
 	margin: 1vw;
+
 }
-button:hover{
+
+button:hover,input[type=submit]:hover{
 	background-color:#40a0ff;
+}
+
+.btn{
+    font-size: 1.2vw;
 }
 
 #droite{
@@ -87,9 +93,15 @@ button:hover{
 }
 
 #logOut{
-    border: none;
+    all: unset;
     float: right;
-    font-size: 2vw;
+    background-image: url("../images/logOut.png");
+    background-repeat: no-repeat ;
+    width: 8vw;
+    height: 8vh;
+    background-size: 6vw 3vw;
+    border: none;
+    background-color:white;
   
  
     
@@ -97,7 +109,7 @@ button:hover{
 }
 
 #logOut:hover{
-    background-color:white;
+
     text-decoration:underline;
     
 }
@@ -109,5 +121,11 @@ h1{
     text-decoration: underline;
     text-underline-offset: 0.5vw;
     font-weight: 1;
+}
+
+a img{
+    position: relative;
+    width: 12vw;
+    height: 12vh;
 }
 

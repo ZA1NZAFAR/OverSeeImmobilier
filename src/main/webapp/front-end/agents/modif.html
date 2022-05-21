@@ -7,7 +7,7 @@
     </head>
     <body>
          <form action="" method="post">
-                <button type="submit" id="logOut" >Se déconnecter</button>
+             <input type="submit" name="logOut" id="logOut" value=" ">
             </form>
       <a href="../accueil.html"><img src="../images/logo.png" /> </a>
         <center>        
@@ -18,21 +18,21 @@
            
         <form action="" method="post">
             <label id="lbl_nom">Nom</label>
-            <input type="text" id="tf_nom" value="monNom">
+            <input type="text" id="tf_nom" name="tf_nom" value="monNom">
               <br/>
             <label id="lbl_prenom">Prénom</label>
-            <input type="text" id="tf_prenom" value="monPrenom">
+            <input type="text" id="tf_prenom" name="tf_prenom" value="monPrenom">
               <br/>
             
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr" value="monAdresse">
+            <input type="text" id="tf_adr" name="tf_adr" value="monAdresse">
               <br/>
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp" value="monCP">
+            <input type="text" id="tf_cp" name="tf_cp" value="monCP">
               <br/>
             
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville" value="maVille">
+            <input type="text" id="tf_ville" name="tf_ville" value="maVille">
               <br/>
             
              <label id="lbl_embauche">Date d'embauche</label>
@@ -40,15 +40,16 @@
             <br/>
             
              <label id="lbl_salaire">Salaire</label>
-            <input type="text" id="tf_salaire" value=123456>
+            <input type="text" id="tf_salaire" name="tf_salaire" value=123456>
               <br/>
             
             <label id="lbl_admin">Administrateur ? </label>
-            <input type="checkbox" name="admin"  checked>
+            <input type="checkbox" id="admin" name="admin"  checked>
             <br/>
             
                <center>
-                    <button type="submit" >Modifier un agent</button>
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Modifier un agent">
+
             </center>
         </form>
         </div>
