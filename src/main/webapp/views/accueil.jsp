@@ -14,12 +14,14 @@
                 <img src="images/logo.png" />
             </div>
             <p> Bonjour Agent [insert nom], que voulez-vous faire ? </p>
-            <a href="biens/gestion.html" target="_self"><button>Gérer les biens</button></a>
+            <a href="biens/gestion.jsp" target="_self"><button>Gérer les biens</button></a>
             <a href="transactions/gestion.html" target="_self"><button>Gérer les transactions</button></a>
             <a href="visites/gestion.html" target="_self"><button>Gérer les visites</button></a>
             <a href="proprietaires/gestion.html" target="_self"><button>Gérer les propietaires</button></a>
             <a href="clients/gestion.html" target="_self"><button>Gérer les clients</button></a>
+            <%if(session.getAttribute("role") == "admin"){%>
             <a href="agents/gestion.html" target="_self"><button>Gérer les agents</button></a>
+            <%}%>
         </center>
 
     </body>

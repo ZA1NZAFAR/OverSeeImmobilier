@@ -2,11 +2,14 @@ package models;
 
 
 import interfaces.SQLable;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Personne implements SQLable {
 
     private long idPersonne;
@@ -108,5 +111,9 @@ public class Personne implements SQLable {
     @Override
     public String getSQLSelect() {
         return "SELECT * FROM personne WHERE id = " + idPersonne + ";";
+    }
+
+    public String getNomComplet() {
+        return nom + " " + prenom;
     }
 }

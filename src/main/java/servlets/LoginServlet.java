@@ -1,8 +1,11 @@
 package servlets;
 
-import tools.ConnectionManager;
+import lombok.SneakyThrows;
+import models.AgentImmobilier;
 import tools.DatabaseConnector;
+import tools.HtmlDisplayer;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,20 +15,21 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    @SneakyThrows
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String username = req.getParameter("tf_id");
         String password = req.getParameter("tf_pwd");
 
         DatabaseConnector databaseConnector = new DatabaseConnector();
-        if (databaseConnector.login(username, password)!=null) {
-            resp.sendRedirect("/views/index.html");
-        }
-
-        if (username.equals("admin") && password.equals("admin")) {
-            req.getSession().setAttribute("username", username);
-            resp.sendRedirect("front-end/accueil.jsp");
+        AgentImmobilier agentImmobilier;
+        if ((agentImmobilier = databaseConnector.login(username, password)) != null) {
+            req.setAttribute("idAgent", databaseConnector.getPersonneById((int) agentImmobilier.getIdPersonne()));
+            req.setAttribute("idPerson", agentImmobilier.getIdPersonne());
+            req.setAttribute("role", agentImmobilier.getEstAdministrateur().equals("oui") ? "admin" : "agent");
+            resp.sendRedirect("views/accueil.jsp");
         } else {
-            resp.sendRedirect("/login.html");
+            req.setAttribute("message", "Unable to login with the given credentials");
+            HtmlDisplayer.processRequest(req, resp);
         }
     }
 

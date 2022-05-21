@@ -2,11 +2,12 @@ package models;
 
 
 import interfaces.SQLable;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@SuperBuilder
 public class AgentImmobilier extends Personne implements SQLable {
 
     private long idAgentImmobilier;

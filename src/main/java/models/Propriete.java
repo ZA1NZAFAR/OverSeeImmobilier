@@ -1,25 +1,34 @@
 package models;
 
 
+import interfaces.HTMLable;
 import interfaces.SQLable;
 import lombok.Getter;
 import lombok.Setter;
+import tools.DatabaseConnector;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
-public class Propriete implements SQLable {
+public class Propriete implements SQLable, HTMLable {
 
     private long numeroReference;
     private String adresse;
     private String ville;
     private long codePostal;
     private String type;
-    private long nombreDePiece;
+    private long nombre_de_piece;
     private double superficie;
-    private String etatDHabitation;
+    private String etat_d_habitation;
     private long garage;
     private double prixInitial;
-    private java.sql.Date dateDisponibilite;
+    private Date dateDisponibilite;
     private long idProprietaire;
 
 
@@ -69,11 +78,11 @@ public class Propriete implements SQLable {
 
 
     public long getNombreDePièce() {
-        return nombreDePiece;
+        return nombre_de_piece;
     }
 
     public void setNombreDePièce(long nombreDePièce) {
-        this.nombreDePiece = nombreDePièce;
+        this.nombre_de_piece = nombreDePièce;
     }
 
 
@@ -86,12 +95,12 @@ public class Propriete implements SQLable {
     }
 
 
-    public String getEtatDHabitation() {
-        return etatDHabitation;
+    public String getEtat_d_habitation() {
+        return etat_d_habitation;
     }
 
-    public void setEtatDHabitation(String etatDHabitation) {
-        this.etatDHabitation = etatDHabitation;
+    public void setEtat_d_habitation(String etat_d_habitation) {
+        this.etat_d_habitation = etat_d_habitation;
     }
 
 
@@ -138,9 +147,9 @@ public class Propriete implements SQLable {
                 ville + "', " +
                 codePostal + ", '" +
                 type + "', " +
-                nombreDePiece + ", " +
+                nombre_de_piece + ", " +
                 superficie + ", '" +
-                etatDHabitation + "', " +
+                etat_d_habitation + "', " +
                 garage + ", " +
                 prixInitial + ", '" +
                 dateDisponibilite + "', " +
@@ -155,9 +164,9 @@ public class Propriete implements SQLable {
                 ville + "', codePostal = " +
                 codePostal + ", type = '" +
                 type + "', nombreDePiece = " +
-                nombreDePiece + ", superficie = " +
+                nombre_de_piece + ", superficie = " +
                 superficie + ", etatDHabitation = '" +
-                etatDHabitation + "', garage = " +
+                etat_d_habitation + "', garage = " +
                 garage + ", prixInitial = " +
                 prixInitial + ", dateDisponibilite = '" +
                 dateDisponibilite + "', idProprietaire = " +
@@ -175,5 +184,24 @@ public class Propriete implements SQLable {
     public String getSQLSelect() {
         return "SELECT * FROM Propriete WHERE numeroReference = " +
                 numeroReference + ";";
+    }
+
+    @Override
+    public String toHTML() {
+        return "<tr>" +
+                "<td><input type=\"checkbox\" name=\"" + numeroReference + "\"></td>" +
+                "<td>" + numeroReference + "</td>" +
+                "<td>" + type + "</td>" +
+                "<td>" + nombre_de_piece + "</td>" +
+                "<td>" + superficie + "</td>" +
+                "<td>" + etat_d_habitation + "</td>" +
+                "<td>" + garage + "</td>" +
+                "<td>" + prixInitial + "</td>" +
+                "<td>" + idProprietaire + "</td>" +
+                "<td>" + adresse + "</td>" +
+                "<td>" + ville + "</td>" +
+                "<td>" + Objects.requireNonNull(DatabaseConnector.getPersonneById((int) idProprietaire)).getNomComplet() + "</td>" +
+                "<td>" + dateDisponibilite + "</td>" +
+                "</tr>";
     }
 }
