@@ -25,6 +25,9 @@ public class DatabaseConnector {
     public static ResultSet executeQuery(String query) throws SQLException {
         return dbConnection.createStatement().executeQuery(query);
     }
+    public static void executeUpdate(String query) throws SQLException {
+        dbConnection.createStatement().executeUpdate(query);
+    }
 
 
     public static void close() throws SQLException {
