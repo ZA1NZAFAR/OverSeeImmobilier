@@ -2,22 +2,22 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <title>Gestion des proprietaires</title>
+      <title>Gestion des clients</title>
       <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
          <form action="" method="post">
              <input type="submit" name="logOut" id="logOut" value=" ">
             </form>
-      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
+      <a href="../accueil.jsp"><img src="../images/logo.png" /> </a>
         <center>        
-            <h1> Ajout d'un proprietaire</h1>
+            <h1> Ajout d'un client</h1>
         </center>
         <div id="cadre">
         <div id="formulaire">
-           
+
         <form action="" method="post">
-            <label id="lbl_nom" name="lbl_nom">Nom</label>
+            <label id="lbl_nom">Nom</label>
             <input type="text" id="tf_nom" name="tf_nom">
               <br/>
             <label id="lbl_prenom">Prénom</label>
@@ -39,14 +39,14 @@
             <input type="text" id="tf_tel" name="tf_tel">
               <br/>
             
-              <label id="lbl_nbVente">Nombre de proprieté mis en vente</label>
+                <label id="lbl_nbVente">Nombre d'achat</label>
             <input type="number" id="stepper_nbVente" name="stepper_nbVente" min="1" max="100" value="0" />
                 <br/>
-              <label id="lbl_nbLocatif">Nombre de  proprieté mis en location</label>
+              <label id="lbl_nbLocatif">Nombre de location</label>
             <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0" />
                 <br/>
                <center>
-                   <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un proprietaire">
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un client">
 
             </center>
         </form>

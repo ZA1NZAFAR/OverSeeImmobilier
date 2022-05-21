@@ -2,7 +2,7 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <title>Gestion des transactions</title>
+      <title>Gestion des clients</title>
       <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
@@ -10,11 +10,11 @@
              <input type="submit" name="logOut" id="logOut" value=" ">
             </form>
    
-            <a href="../accueil.html"><img src="../images/logo.png"/> </a>
+            <a href="../accueil.jsp"><img src="../images/logo.png"/> </a>
 		<center>
-            <h1> Liste des transactions</h1>
+            <h1> Liste des clients</h1>
         </center>
-		<a href="ajout.html" target="_self"><button>Ajouter un bien</button></a>
+		<a href="ajout.html" target="_self"><button>Ajouter un client</button></a>
 		<div id="droite">
             <form action="modif.html" method="post">
                 <input type="submit" name="btn_update" id="btn_update" value="Modifier">
@@ -30,29 +30,22 @@
                  <thead>
 					 <tr>
 						<th></th>
-						<th>Référence du bien</th>
-						<th>Proprietaire </th>
-						<th>Client </th>
-						<th>Type transaction</th>
-						<th>Agent immobilier </th>
-						<th>Prix du bien </th>
-                        <th>Prix de la vente </th>
-                        <th>Commision</th>
-                        <th>Date de la vente </th>
+					    <th></th>
+						<th>Identifiant</th>
+						<th>Nom </th>
+						<th>Prénom </th>
+						<th>Adresse </th>
+						<th>Code postal </th>
+						<th>Ville </th>
+                        <th>Nombre d'achat </th>	
+                        <th>Nombre de location </th>
 				   </tr>
 				 </thead>
 			<tbody>
 				   <tr>
 					   <td> <input type="checkbox" name="selectionner" ></td>
 					   <td> </td>
-                       <td> </td>
-                       <td> </td>
-                       <td> </td>
-                       <td> </td>
-                       <td> </td>
-                       <td> </td>
-                       <td> </td>
-					
+
                </tr>
 			</tbody>
                

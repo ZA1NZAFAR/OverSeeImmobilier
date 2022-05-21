@@ -2,21 +2,21 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <title>Gestion des agents</title>
+      <title>Gestion des transactions</title>
       <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
          <form action="" method="post">
              <input type="submit" name="logOut" id="logOut" value=" ">
-          </form>
+            </form>
    
-            <a href="../accueil.html"><img src="../images/logo.png"/> </a>
+            <a href="../accueil.jsp"><img src="../images/logo.png"/> </a>
 		<center>
-            <h1> Liste des agents</h1>
+            <h1> Liste des transactions</h1>
         </center>
-		<a href="ajout.html" target="_self"><button>Ajouter un agent</button></a>
+		<a href="ajout.html" target="_self"><button>Ajouter un bien</button></a>
 		<div id="droite">
-			<form action="modif.html" method="post">
+            <form action="modif.html" method="post">
                 <input type="submit" name="btn_update" id="btn_update" value="Modifier">
             </form>
             <form action="" method="post">
@@ -30,22 +30,29 @@
                  <thead>
 					 <tr>
 						<th></th>
-						<th>Identifiant</th>
-						<th>Nom </th>
-						<th>Prénom </th>
-						<th>Adresse </th>
-						<th>Code postal </th>
-						<th>Ville </th>
-                        <th>Date d'embauche </th>	
-                        <th>Salaire </th>
-						<th>Administrateur </th>
+						<th>Référence du bien</th>
+						<th>Proprietaire </th>
+						<th>Client </th>
+						<th>Type transaction</th>
+						<th>Agent immobilier </th>
+						<th>Prix du bien </th>
+                        <th>Prix de la vente </th>
+                        <th>Commision</th>
+                        <th>Date de la vente </th>
 				   </tr>
 				 </thead>
 			<tbody>
 				   <tr>
 					   <td> <input type="checkbox" name="selectionner" ></td>
 					   <td> </td>
-					 
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+                       <td> </td>
+					
                </tr>
 			</tbody>
                

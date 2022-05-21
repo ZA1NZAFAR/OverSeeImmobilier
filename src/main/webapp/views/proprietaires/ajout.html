@@ -9,31 +9,36 @@
          <form action="" method="post">
              <input type="submit" name="logOut" id="logOut" value=" ">
             </form>
-      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
+      <a href="../accueil.jsp"><img src="../images/logo.png" /> </a>
         <center>        
-            <h1> Modification d'un proprietaire</h1>
+            <h1> Ajout d'un proprietaire</h1>
         </center>
         <div id="cadre">
         <div id="formulaire">
            
         <form action="" method="post">
-            <label id="lbl_nom">Nom</label>
-            <input type="text" id="tf_nom" name="tf_nom" value="Zafar">
+            <label id="lbl_nom" name="lbl_nom">Nom</label>
+            <input type="text" id="tf_nom" name="tf_nom">
               <br/>
             <label id="lbl_prenom">Prénom</label>
-            <input type="text" id="tf_prenom" name="tf_prenom" value="Zain">
+            <input type="text" id="tf_prenom" name="tf_prenom">
               <br/>
             
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr" name="tf_adr" value="monAdresse">
+            <input type="text" id="tf_adr" name="tf_adr">
               <br/>
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp" name="tf_cp" value="codeP">
+            <input type="text" id="tf_cp" name="tf_cp">
               <br/>
             
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville" name="tf_ville" value="Paris">
+            <input type="text" id="tf_ville" name="tf_ville">
               <br/>
+            
+             <label id="lbl_tel">Telephone</label>
+            <input type="text" id="tf_tel" name="tf_tel">
+              <br/>
+            
               <label id="lbl_nbVente">Nombre de proprieté mis en vente</label>
             <input type="number" id="stepper_nbVente" name="stepper_nbVente" min="1" max="100" value="0" />
                 <br/>
@@ -41,7 +46,8 @@
             <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0" />
                 <br/>
                <center>
-                   <input type="submit" name="btn_submit" id="btn_submit" value="Modifier un proprietaire">
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un proprietaire">
+
             </center>
         </form>
         </div>

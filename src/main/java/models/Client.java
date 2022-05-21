@@ -2,7 +2,11 @@ package models;
 
 
 import interfaces.SQLable;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Client extends Personne implements SQLable {
 
     private long idClient;

@@ -2,52 +2,46 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <title>Gestion des clients</title>
+      <title>Gestion des proprietaires</title>
       <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
          <form action="" method="post">
              <input type="submit" name="logOut" id="logOut" value=" ">
             </form>
-      <a href="../accueil.html"><img src="../images/logo.png" /> </a>
+      <a href="../accueil.jsp"><img src="../images/logo.png" /> </a>
         <center>        
-            <h1> Ajout d'un client</h1>
+            <h1> Modification d'un proprietaire</h1>
         </center>
         <div id="cadre">
         <div id="formulaire">
-
+           
         <form action="" method="post">
             <label id="lbl_nom">Nom</label>
-            <input type="text" id="tf_nom" name="tf_nom">
+            <input type="text" id="tf_nom" name="tf_nom" value="Zafar">
               <br/>
             <label id="lbl_prenom">Prénom</label>
-            <input type="text" id="tf_prenom" name="tf_prenom">
+            <input type="text" id="tf_prenom" name="tf_prenom" value="Zain">
               <br/>
             
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr" name="tf_adr">
+            <input type="text" id="tf_adr" name="tf_adr" value="monAdresse">
               <br/>
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp" name="tf_cp">
+            <input type="text" id="tf_cp" name="tf_cp" value="codeP">
               <br/>
             
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville" name="tf_ville">
+            <input type="text" id="tf_ville" name="tf_ville" value="Paris">
               <br/>
-            
-             <label id="lbl_tel">Telephone</label>
-            <input type="text" id="tf_tel" name="tf_tel">
-              <br/>
-            
-                <label id="lbl_nbVente">Nombre d'achat</label>
+              <label id="lbl_nbVente">Nombre de proprieté mis en vente</label>
             <input type="number" id="stepper_nbVente" name="stepper_nbVente" min="1" max="100" value="0" />
                 <br/>
-              <label id="lbl_nbLocatif">Nombre de location</label>
+              <label id="lbl_nbLocatif">Nombre de  proprieté mis en location</label>
             <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0" />
                 <br/>
                <center>
-                   <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un client">
-
+                   <input type="submit" name="btn_submit" id="btn_submit" value="Modifier un proprietaire">
             </center>
         </form>
         </div>
