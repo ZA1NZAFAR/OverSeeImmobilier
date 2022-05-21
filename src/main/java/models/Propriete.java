@@ -189,7 +189,7 @@ public class Propriete implements SQLable, HTMLable {
     @Override
     public String toHTML() {
         return "<tr>" +
-                "<td><input type=\"checkbox\" name=\"" + numeroReference + "\"></td>" +
+                "<td><input type=\"checkbox\" name=\"" + numeroReference + "\" onclick=\"updateCheckBoxes();\"></td>" +
                 "<td>" + numeroReference + "</td>" +
                 "<td>" + type + "</td>" +
                 "<td>" + nombre_de_piece + "</td>" +
@@ -197,10 +197,10 @@ public class Propriete implements SQLable, HTMLable {
                 "<td>" + etat_d_habitation + "</td>" +
                 "<td>" + garage + "</td>" +
                 "<td>" + prixInitial + "</td>" +
-                "<td>" + idProprietaire + "</td>" +
-                "<td>" + adresse + "</td>" +
-                "<td>" + ville + "</td>" +
                 "<td>" + Objects.requireNonNull(DatabaseConnector.getPersonneById((int) idProprietaire)).getNomComplet() + "</td>" +
+                "<td>" + adresse + "</td>" +
+                "<td>" + codePostal + "</td>" +
+                "<td>" + ville + "</td>" +
                 "<td>" + dateDisponibilite + "</td>" +
                 "</tr>";
     }

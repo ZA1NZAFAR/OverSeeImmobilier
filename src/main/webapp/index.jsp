@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="views/css/style.css">
 </head>
 <body>
-<center>
+<div style="text-align: center;">
     <img alt="logo" src="views/images/logo.png" />
     <form action="LoginServlet" method="post">
         <label id="lbl_id">Identifiant</label>
@@ -17,7 +17,7 @@
         <br/>
         <input type="submit" name="btn_submit" id="btn_submit" value="Se connecter">
     </form>
-</center>
+</div>
 
 </body>
 </html>

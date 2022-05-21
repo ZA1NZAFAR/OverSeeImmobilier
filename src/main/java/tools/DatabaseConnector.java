@@ -5,6 +5,7 @@ import models.Personne;
 import models.Propriete;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import javax.sql.DataSource;
@@ -63,11 +64,21 @@ public class DatabaseConnector {
         List<Propriete> proprietes = new ArrayList<>();
         try {
             QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
-            ResultSetHandler<List<Propriete>> h = new BeanListHandler<Propriete>(Propriete.class);
+            ResultSetHandler<List<Propriete>> h = new BeanListHandler<>(Propriete.class);
             proprietes = run.query("SELECT * FROM Propriete", h);
         } catch (SQLException e) {
             throw new RuntimeException("Could not get all proprietes", e);
         }
         return proprietes;
+    }
+
+    public static Propriete getProprieteById(int idPropriete) {
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Propriete> h = new BeanHandler<>(Propriete.class);
+            return run.query("SELECT * FROM Propriete WHERE numeroReference = " + idPropriete, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all proprietes", e);
+        }
     }
 }

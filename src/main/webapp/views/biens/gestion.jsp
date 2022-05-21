@@ -8,6 +8,31 @@
     <meta charset="utf-8">
     <title>Gestion des biens</title>
     <link rel="stylesheet" href="../css/style.css">
+
+    <script>
+        function updateCheckBoxes() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            for (var checkbox of checkboxes) {
+                var toEdit = document.getElementById("propertyToEdit");
+                var toDelete = document.getElementById("propertyToDelete");
+                toEdit.setAttribute("value",checkbox.getAttribute("name"));
+                toDelete.setAttribute("value",checkbox.getAttribute("name"));
+            }
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
+            for (var checkbox of checkboxes) {
+               checkbox.disabled = true;
+            }
+
+            if (document.querySelectorAll('input[type="checkbox"]:disabled').length === document.querySelectorAll('input[type="checkbox"]').length){
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]:disabled');
+                for (var checkbox of checkboxes) {
+                    checkbox.disabled = false;
+                }
+            }
+        }
+    </script>
+
 </head>
 <body>
 <form action="" method="post">
@@ -23,10 +48,14 @@
         <button>Ajouter un bien</button>
     </a>
     <div id="droite">
-        <form action="modif.html" method="post">
-            <input type="submit" name="btn_update" id="btn_update" value="Modifier">
+        <form action="/OverSeeImmobilier/EditPropertyServlet" method="post">
+            <input type="hidden" id="propertyToEdit" name="propertyId" value="">
+            <input type="hidden" name="action" value="edit">
+            <input type="submit" name="btn_update" id="btn_update" value="Modifier">>
         </form>
-        <form action="" method="post">
+        <form action="/OverSeeImmobilier/EditPropertyServlet" method="post">
+            <input type="hidden" id="propertyToDelete" name="propertyId" value="">
+            <input type="hidden" name="action" value="delete">
             <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">
         </form>
     </div>
@@ -54,21 +83,6 @@
     <% for (Propriete p : DatabaseConnector.getAllProprietes()) {
         out.print(p.toHTML());
     }%>
-    <%--    <tr>--%>
-    <%--        <td><input type="checkbox" name="selectionner"></td>--%>
-    <%--        <td>1</td>--%>
-    <%--        <td>Maison</td>--%>
-    <%--        <td>4</td>--%>
-    <%--        <td>72</td>--%>
-    <%--        <td>Neuf</td>--%>
-    <%--        <td>1</td>--%>
-    <%--        <td>100.000</td>--%>
-    <%--        <td>Zain Zafar</td>--%>
-    <%--        <td>2 rue des Anciens combattant</td>--%>
-    <%--        <td>06230</td>--%>
-    <%--        <td>Nice</td>--%>
-    <%--        <td>01/06/2022</td>--%>
-    <%--    </tr>--%>
     </tbody>
 </table>
 
