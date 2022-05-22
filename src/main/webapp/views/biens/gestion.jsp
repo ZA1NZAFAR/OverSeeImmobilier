@@ -35,11 +35,8 @@
 
 </head>
 <body>
-<form action="" method="post">
-    <input type="submit" name="logOut" id="logOut" value=" ">
-</form>
+<jsp:include page="../header.html"/>
 
-<a href="../accueil.jsp"><img src="../images/logo.png" alt="OverSeeImmobilier"/> </a>
 <center>
     <h1> Liste des biens immobilier</h1>
 </center>
@@ -85,7 +82,6 @@
     }%>
     </tbody>
 </table>
-
 
 </body>
 </html>

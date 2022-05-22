@@ -92,27 +92,7 @@ button:hover,input[type=submit]:hover{
     
 }
 
-#logOut{
-    all: unset;
-    float: right;
-    background-image: url("../images/logOut.png");
-    background-repeat: no-repeat ;
-    width: 8vw;
-    height: 8vh;
-    background-size: 6vw 3vw;
-    border: none;
-    background-color:white;
-  
- 
-    
-    
-}
 
-#logOut:hover{
-
-    text-decoration:underline;
-    
-}
 
 h1{
     font-size: 3vw;
@@ -129,3 +109,30 @@ a img{
     height: 12vh;
 }
 
+ul {
+    position:fixed;
+    top: 2vw;
+    left: 50vw;
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    padding-left: 5px;
+}
+ul li{
+    display:inline-block;
+
+}
+
+ul img{
+    position: relative;
+    width: 6vw;
+    height: 8vh;
+}
+li:hover{
+    /* L'image est grossie de 25% */
+    -webkit-transform:scale(1.25); /* Safari et Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* Internet Explorer 9 */
+    -o-transform:scale(1.25); /* Opera */
+    transform:scale(1.25);
+}
