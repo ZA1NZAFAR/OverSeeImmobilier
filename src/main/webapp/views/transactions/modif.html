@@ -1,3 +1,4 @@
+<!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
 <!doctype html>
 <html>
     <head>
@@ -6,14 +7,13 @@
       <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-         <form action="" method="post">
-             <input type="submit" name="logOut" id="logOut" value=" ">
-            </form>
-      <a href="../accueil.jsp"><img src="../images/logo.png" /> </a>
-         <center>
-             <h1> Modification d'une transaction</h1>
-        </center>
-        <div id="cadre">
+    <!--
+<header>
+    <jsp:include page="../header.html"/>
+</header>
+-->
+         <h1> Modification d'une transaction</h1>
+         <div id="cadre">
         <div id="formulaire">
            
         <form action="" method="post">
@@ -62,9 +62,9 @@
             <label id="lbl_dispo">Date de la vente</label>
             <input type="date" id="date" name="date" value="2022-06-01">
             <br/>
-               <center>
+               <div style="text-align: center;">
                    <input type="submit" name="btn_submit" id="btn_submit" value="Modifier une transaction">
-               </center>
+               </div>
         </form>
         </div>
         </div>

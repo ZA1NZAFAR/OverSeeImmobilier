@@ -2,6 +2,8 @@
 <%@ page import="tools.DatabaseConnector" %>
 <%@ page import="java.lang.reflect.InvocationTargetException" %>
 <%@ page import="java.lang.reflect.Method" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!doctype html>
 <html>
 <head>
@@ -35,7 +37,9 @@
 
 </head>
 <body>
-<jsp:include page="../header.html"/>
+<header>
+    <jsp:include page="../header.html"/>
+</header>
 
 <center>
     <h1> Liste des biens immobilier</h1>

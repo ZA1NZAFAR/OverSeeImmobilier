@@ -1,6 +1,8 @@
 <%@ page import="models.Propriete" %>
 <%@ page import="tools.DatabaseConnector" %>
 <%@ page import="java.util.Objects" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!doctype html>
 <html>
 
@@ -11,11 +13,14 @@
 </head>
 
 <body>
-<form action="" method="post">
-    <input type="submit" name="logOut" id="logOut" value=" "></form>
-<a href="../accueil.jsp"><img src="../images/logo.png"/> </a>
-<center>
-    <h1>Modification du bien</h1></center>
+<header>
+    <jsp:include page="../header.html"/>
+</header>
+
+
+
+<div style="text-align: center;">
+    <h1>Modification du bien</h1></div>
 
 <% Propriete p = DatabaseConnector.getProprieteById(Integer.parseInt(request.getParameter("propertyId")));%>
 
@@ -73,8 +78,8 @@
             <label id="lbl_dispo">Disponibilité</label>
             <input type="date" id="date" name="date" value="<%=p.getDateDisponibilite()%>">
 
-            <center>
-                <input type="submit" name="btn_submit" id="btn_submit" value="Modifier le bien"></center>
+            <div style="text-align: center;">
+                <input type="submit" name="btn_submit" id="btn_submit" value="Modifier le bien"></div>
         </form>
     </div>
 </div>

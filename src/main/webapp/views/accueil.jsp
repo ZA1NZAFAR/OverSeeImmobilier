@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!doctype html>
 <html>
     <head>
@@ -6,10 +8,9 @@
       <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-         <form action="" method="post">
-             <input type="submit" name="logOut" id="logOut" value=" ">
-            </form>
-        <center>
+    <a href="../index.jsp"><img src="images/logOut.png" /> </a>
+
+    <div style="text-align: center;">
            <div style="padding:20vh;">
                 <img src="images/logo.png" />
             </div>
@@ -22,7 +23,7 @@
             <%if(session.getAttribute("role") == "admin"){%>
             <a href="agents/gestion.html" target="_self"><button>Gérer les agents</button></a>
             <%}%>
-        </center>
+        </div>
 
     </body>
 </html>

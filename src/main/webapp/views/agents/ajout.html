@@ -1,3 +1,4 @@
+<!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
 <!doctype html>
 <html>
 <head>
@@ -6,18 +7,20 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<form action="" method="post">
-    <input type="submit" name="logOut" id="logOut" value=" ">
-</form>
-<a href="../accueil.jsp"><img src="../images/logo.png" /> </a>
-<center>
+<!--
+  <header>
+      <jsp:include page="../header.html"/>
+  </header>
+  -->
+
+<div style="text-align: center;">
     <h1> Ajout d'un agent</h1>
-</center>
+</div>
 <div id="cadre">
     <div id="formulaire">
 
         <form action="" method="post">
-            <label id="lbl_nom">Nom</label>
+            <label id="lbl_nom" for="tf_nom">Nom</label>
             <input type="text" id="tf_nom" name="tf_nom">
             <br/>
             <label id="lbl_prenom">Prénom</label>
@@ -47,10 +50,10 @@
             <input type="checkbox" id="admin" name="admin" >
             <br/>
 
-            <center>
+            <div style="text-align: center;">
                 <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un agent">
 
-            </center>
+            </div>
         </form>
     </div>
 </div>
