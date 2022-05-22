@@ -5,6 +5,9 @@ import interfaces.SQLable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import tools.DatabaseConnector;
+
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -49,5 +52,20 @@ public class Client extends Personne implements SQLable {
     @Override
     public String getSQLSelect() {
         return "SELECT * FROM `client` WHERE `client`.`idClient` = " + idClient + ";";
+    }
+
+    public String toHTML() {
+        Personne tmp = DatabaseConnector.getPersonneById((int) this.idPersonne);
+        return "<tr>" +
+                "<td><input type=\"checkbox\" name=\"" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
+                "<td>" + idClient + "</td>" +
+                "<td>" + tmp.getNom() + "</td>" +
+                "<td>" + tmp.getPrenom() + "</td>" +
+                "<td>" + tmp.getAdresse() + "</td>" +
+                "<td>" + tmp.getCodePostal() + "</td>" +
+                "<td>" + tmp.getVille() + "</td>" +
+                "<td>" + "TODO" + "</td>" +
+                "<td>" + "TODO" + "</td>" +
+                "</tr>";
     }
 }

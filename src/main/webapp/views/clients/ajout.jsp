@@ -1,4 +1,7 @@
-<!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
+<%@ page import="tools.DatabaseConnector" %>
+<!--
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-->
 <!doctype html>
 <html>
 <head>
@@ -7,11 +10,11 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<!--
+
 <header>
- <jsp:include page="../header.html"/>
+    <jsp:include page="../header.jsp"/>
 </header>
--->
+
 
 <div style="text-align: center;">
     <h1> Ajout d'un client</h1>
@@ -19,7 +22,7 @@
 <div id="cadre">
     <div id="formulaire">
 
-        <form action="" method="post">
+        <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
             <label id="lbl_nom">Nom</label>
             <input type="text" id="tf_nom" name="tf_nom">
 
@@ -40,6 +43,14 @@
 
             <label id="lbl_tel">Telephone</label>
             <input type="text" id="tf_tel" name="tf_tel">
+
+            <label for="estProp"> Est Proprietaire</label><input type="checkbox" id="estProp" name="estProp" value="estProp">
+
+            <%if (DatabaseConnector.isAdmin(((Long) request.getSession().getAttribute("idAgent")).intValue() + "")) {%>
+            <label for="estAgent"> Est Agent</label><input type="checkbox" id="estAgent" name="estAgent" value="">
+            <%}%>
+
+            <input type="hidden" name="action" value="add">
 
             <div style="text-align: center;">
                 <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un client">

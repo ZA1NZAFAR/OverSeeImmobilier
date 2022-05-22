@@ -24,7 +24,7 @@ public class ManagePropertyServlet extends HttpServlet {
                 resp.sendRedirect("views/biens/modif.jsp?propertyId=" + propertyId);
                 break;
             case "delete":
-                DatabaseConnector.executeUpdate("DELETE FROM Propriete WHERE numeroReference = " + propertyId);
+                DatabaseConnector.executeDelete("DELETE FROM Propriete WHERE numeroReference = " + propertyId);
                 DatabaseConnector.log(Log.builder().idAgent(0).action("Suppression").information("Propriété " + propertyId).build());
                 resp.sendRedirect("views/biens/gestion.jsp");
                 break;

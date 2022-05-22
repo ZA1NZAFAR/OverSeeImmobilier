@@ -81,6 +81,18 @@ public class DatabaseConnector {
         return prop;
     }
 
+    public static List<Client> getAllClients() {
+        List<Client> proprietes = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<Client>> h = new BeanListHandler<>(Client.class);
+            proprietes = run.query("SELECT * FROM Client", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all proprietes", e);
+        }
+        return proprietes;
+    }
+
     public AgentImmobilier login(String username, String password) throws SQLException {
 
         AgentImmobilier personne = null;

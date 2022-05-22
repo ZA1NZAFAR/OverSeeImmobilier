@@ -30,10 +30,10 @@
     <a href="proprietaires/gestion.html" target="_self">
         <button>Gérer les propietaires</button>
     </a>
-    <a href="clients/gestion.html" target="_self">
+    <a href="clients/gestion.jsp" target="_self">
         <button>Gérer les clients</button>
     </a>
-    <%if (DatabaseConnector.isAdmin(request.getParameter("idAgent"))) {%>
+    <%if (DatabaseConnector.isAdmin(((Long) request.getSession().getAttribute("idAgent")).intValue() + "")) {%>
     <a href="agents/gestion.html" target="_self">
         <button>Gérer les agents</button>
     </a>
