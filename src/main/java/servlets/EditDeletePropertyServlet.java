@@ -1,6 +1,7 @@
 package servlets;
 
 import lombok.SneakyThrows;
+import models.Log;
 import tools.DatabaseConnector;
 
 import javax.servlet.ServletException;
@@ -22,6 +23,21 @@ public class EditDeletePropertyServlet extends HttpServlet {
         } else if (action.equals("delete")) {
             DatabaseConnector.executeUpdate("DELETE FROM Propriete WHERE numeroReference = " + propertyId);
             req.getRequestDispatcher("/views/biens/gestion.jsp").forward(req, resp);
+        } else if (action.equals("update")) {
+            DatabaseConnector.executeUpdate("UPDATE Propriete SET adresse = '" +
+                    req.getAttribute("tf_adr") + "', ville = '" +
+                    req.getAttribute("tf_ville") + "', codePostal = " +
+                    req.getAttribute("tf_cp") + ", type = '" +
+                    req.getAttribute("listT_biens") + "', nombreDePiece = " +
+                    req.getAttribute("stepper_nbPiece") + ", superficie = " +
+                    req.getAttribute("tf_superficie") + ", etatDHabitation = '" +
+                    req.getAttribute("list_type") + "', garage = " +
+                    req.getAttribute("stepper_garage") + ", prixInitial = " +
+                    req.getAttribute("???") + ", dateDisponibilite = '" +
+                    req.getAttribute("date") + "', idProprietaire = " +
+                    req.getAttribute("???") + " WHERE numeroReference = " +
+                    req.getAttribute("ref_bien") + ";");
+            DatabaseConnector.log(Log.builder().idAgent(0).action("Modification d'un bien").information("TODO! Add query here!").build());
         }
 
     }
