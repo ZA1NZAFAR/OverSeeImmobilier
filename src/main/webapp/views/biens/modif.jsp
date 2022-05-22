@@ -1,5 +1,6 @@
 <%@ page import="models.Propriete" %>
 <%@ page import="tools.DatabaseConnector" %>
+<%@ page import="java.util.Objects" %>
 <!doctype html>
 <html>
 
@@ -31,10 +32,10 @@
             </select>
 
             <label id="lbl_nbPiece">Nombre de pièce</label>
-            <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100" value="2"/>
+            <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100" value="<%=p.getNombre_de_piece()%>"/>
 
             <label id="lbl_superficie">Superficie</label>
-            <input type="text" id="tf_superficie" name="tf_superficie" value=30>
+            <input type="text" id="tf_superficie" name="tf_superficie" value="<%=p.getSuperficie()%>">
 
             <label id="lbl_etatHab">Etat d'habitation</label>
             <select name="list_type" id="list_type">
@@ -44,26 +45,26 @@
             </select>
 
             <label id="lbl_garage">Garage</label>
-            <input type="number" id="stepper_garage" name="stepper_garage" min="0" max="10" value="0"/>
+            <input type="number" id="stepper_garage" name="stepper_garage" min="0" max="10" value="<%=p.getGarage()%>"/>
 
             <label id="lbl_prop">Proprietaire</label>
             <select name="list_prop" id="list_prop">
-                <option></option>
+                <option><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) p.getIdProprietaire())).getNomComplet()%></option>
                 <option>prop1</option>
                 <option>prop2</option>
             </select>
 
             <label id="lbl_adr">Adresse</label>
-            <input type="text" id="tf_adr" name="tf_adr" value="2 rue malou">
+            <input type="text" id="tf_adr" name="tf_adr" value="<%=p.getAdresse()%>">
 
             <label id="lbl_cp">Code postal</label>
-            <input type="text" id="tf_cp" name="tf_cp" value="06230">
+            <input type="text" id="tf_cp" name="tf_cp" value="<%=p.getCodePostal()%>">
 
             <label id="lbl_ville">Ville</label>
-            <input type="text" id="tf_ville" name="tf_ville" value="Nice">
+            <input type="text" id="tf_ville" name="tf_ville" value="<%=p.getVille()%>">
 
             <label id="lbl_dispo">Disponibilité</label>
-            <input type="date" id="date" name="date" value="2022-06-01">
+            <input type="date" id="date" name="date" value="<%=p.getDateDisponibilite()%>">
 
             <center>
                 <input type="submit" name="btn_submit" id="btn_submit" value="Modifier le bien"></center>

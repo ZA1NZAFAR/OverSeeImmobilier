@@ -3,12 +3,12 @@ package tools;
 import models.AgentImmobilier;
 import models.Personne;
 import models.Propriete;
+import models.Log;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,6 +24,10 @@ public class DatabaseConnector {
 
     public static ResultSet executeQuery(String query) throws SQLException {
         return dbConnection.createStatement().executeQuery(query);
+    }
+
+    public static void executeUpdate(String query) throws SQLException {
+        dbConnection.createStatement().executeUpdate(query);
     }
 
 
@@ -80,5 +84,9 @@ public class DatabaseConnector {
         } catch (SQLException e) {
             throw new RuntimeException("Could not get all proprietes", e);
         }
+    }
+
+    public static void log(Log log) throws SQLException {
+        executeQuery(log.getSQLInsert());
     }
 }
