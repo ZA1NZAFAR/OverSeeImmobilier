@@ -16,7 +16,7 @@
         <img src="images/logo.png"/>
     </div>
     <p> Bonjour
-        <%=DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById(Integer.parseInt(request.getParameter("idAgent"))).getIdPersonne()).getNomComplet()%>
+        <%=DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById(((Long) request.getSession().getAttribute("idAgent")).intValue()).getIdPersonne()).getNomComplet()%>
         , que voulez-vous faire ? </p>
     <a href="biens/gestion.jsp" target="_self">
         <button>Gérer les biens</button>

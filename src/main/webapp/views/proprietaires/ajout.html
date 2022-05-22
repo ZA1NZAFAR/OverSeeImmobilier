@@ -2,59 +2,56 @@
 
 <!doctype html>
 <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Gestion des proprietaires</title>
-      <link rel="stylesheet" href="../css/style.css">
-    </head>
-    <body>
-    <!--
-     <header>
-         <jsp:include page="../header.html"/>
-     </header>
-     -->
-        <div style="text-align: center;">
-            <h1> Ajout d'un proprietaire</h1>
-        </div>
-        <div id="cadre">
-        <div id="formulaire">
-           
+<head>
+    <meta charset="utf-8">
+    <title>Gestion des proprietaires</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<!--
+ <header>
+     <jsp:include page="../header.html"/>
+ </header>
+ -->
+<div style="text-align: center;">
+    <h1> Ajout d'un proprietaire</h1>
+</div>
+<div id="cadre">
+    <div id="formulaire">
+
         <form action="" method="post">
             <label id="lbl_nom" name="lbl_nom">Nom</label>
             <input type="text" id="tf_nom" name="tf_nom">
-              <br/>
+            <br/>
             <label id="lbl_prenom">Prénom</label>
             <input type="text" id="tf_prenom" name="tf_prenom">
-              <br/>
-            
+
+            <label id="lbl_dispo">DDN</label>
+            <input type="date" id="date" name="date">
+
             <label id="lbl_adr">Adresse</label>
             <input type="text" id="tf_adr" name="tf_adr">
-              <br/>
+
             <label id="lbl_cp">Code postal</label>
             <input type="text" id="tf_cp" name="tf_cp">
-              <br/>
-            
+
             <label id="lbl_ville">Ville</label>
             <input type="text" id="tf_ville" name="tf_ville">
-              <br/>
-            
-             <label id="lbl_tel">Telephone</label>
+
+            <label id="lbl_tel">Telephone</label>
             <input type="text" id="tf_tel" name="tf_tel">
-              <br/>
-            
-              <label id="lbl_nbVente">Nombre de proprieté mis en vente</label>
-            <input type="number" id="stepper_nbVente" name="stepper_nbVente" min="1" max="100" value="0" />
-                <br/>
-              <label id="lbl_nbLocatif">Nombre de  proprieté mis en location</label>
-            <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0" />
-                <br/>
-               <center>
-                   <input type="submit" name="btn_submit" id="btn_submit" value="Ajouter un proprietaire">
 
-            </center>
+            <label id="lbl_nbVente">Nombre de proprieté mis en vente</label>
+            <input type="number" id="stepper_nbVente" name="stepper_nbVente" min="1" max="100" value="0"/>
+
+            <label id="lbl_nbLocatif">Nombre de proprieté mis en location</label>
+            <input type="number" id="stepper_nbLocatif" name="stepper_nbLocatif" min="1" max="100" value="0"/>
+
+            <div style="text-align: center;"><input type="submit" name="btn_submit" id="btn_submit"
+                                                    value="Ajouter un proprietaire"></div>
         </form>
-        </div>
-        </div>
+    </div>
+</div>
 
-    </body>
+</body>
 </html>
