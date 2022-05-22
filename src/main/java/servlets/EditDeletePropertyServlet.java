@@ -38,6 +38,7 @@ public class EditDeletePropertyServlet extends HttpServlet {
                     req.getAttribute("???") + " WHERE numeroReference = " +
                     req.getAttribute("ref_bien") + ";");
             DatabaseConnector.log(Log.builder().idAgent(0).action("Modification d'un bien").information("TODO! Add query here!").build());
+            resp.sendRedirect("views/accueil.jsp");
         }
 
     }
