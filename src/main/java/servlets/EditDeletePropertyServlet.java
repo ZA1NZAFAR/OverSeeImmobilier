@@ -22,7 +22,7 @@ public class EditDeletePropertyServlet extends HttpServlet {
             resp.sendRedirect("views/biens/modif.jsp?propertyId=" + propertyId);
         } else if (action.equals("delete")) {
             DatabaseConnector.executeUpdate("DELETE FROM Propriete WHERE numeroReference = " + propertyId);
-            req.getRequestDispatcher("/views/biens/gestion.jsp").forward(req, resp);
+            resp.sendRedirect("views/biens/gestion.jsp");
         } else if (action.equals("update")) {
             DatabaseConnector.executeUpdate("UPDATE Propriete SET adresse = '" +
                     req.getAttribute("tf_adr") + "', ville = '" +

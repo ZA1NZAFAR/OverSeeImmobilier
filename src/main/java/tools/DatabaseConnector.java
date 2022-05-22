@@ -9,6 +9,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,17 @@ public class DatabaseConnector {
 
     public static void executeUpdate(String query) throws SQLException {
         dbConnection.createStatement().executeUpdate(query);
+    }
+
+    public static void executeDelete(String query) throws SQLException {
+        // Disable foreign keys check
+        Statement stmt = dbConnection.createStatement();
+        stmt.execute("SET FOREIGN_KEY_CHECKS=0");
+        stmt.close();
+        dbConnection.createStatement().executeUpdate(query);
+        stmt = dbConnection.createStatement();
+        stmt.execute("SET FOREIGN_KEY_CHECKS=1");
+        stmt.close();
     }
 
 
