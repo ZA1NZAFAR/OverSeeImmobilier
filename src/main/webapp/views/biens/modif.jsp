@@ -22,7 +22,8 @@
 <div id="cadre">
     <div id="formulaire">
         <form action="" method="post">
-            <label id="lbl_refBien">Nombre de pièce</label>
+
+            <label id="lbl_refBien">Référence du bien</label>
             <input type="text" id="refBien" name="refBien" value="<%=p.getNumeroReference()%>" disabled="true"/>
 
             <label id="lbl_type">Type du bien</label>
@@ -46,6 +47,12 @@
 
             <label id="lbl_garage">Garage</label>
             <input type="number" id="stepper_garage" name="stepper_garage" min="0" max="10" value="<%=p.getGarage()%>"/>
+
+
+            <label id="lbl_prix">Prix</label>
+            <input type="number" id="stepper_prix" name="stepper_prix" min="0"  value="0" />
+            <br/>
+
 
             <label id="lbl_prop">Proprietaire</label>
             <select name="list_prop" id="list_prop">
