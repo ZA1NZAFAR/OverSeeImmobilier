@@ -1,52 +1,42 @@
 package models;
 
-
-import interfaces.SQLable;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-public class Proprietaire extends Personne implements SQLable {
+public class Proprietaire {
 
-    private long idPropriétaire;
-    private long idPersonne;
-
-
-    public long getIdPropriétaire() {
-        return idPropriétaire;
-    }
-
-    public void setIdPropriétaire(long idPropriétaire) {
-        this.idPropriétaire = idPropriétaire;
-    }
+  private long idProprietaire;
+  private long idPersonne;
+  private long nbBienPossedes;
 
 
-    public long getIdPersonne() {
-        return idPersonne;
-    }
+  public long getIdProprietaire() {
+    return idProprietaire;
+  }
 
-    public void setIdPersonne(long idPersonne) {
-        this.idPersonne = idPersonne;
-    }
+  public void setIdProprietaire(long idProprietaire) {
+    this.idProprietaire = idProprietaire;
+  }
 
-    @Override
-    public String getSQLInsert() {
-        return "INSERT INTO `proprietaire` (`idPropriétaire`, `idPersonne`) VALUES (" + idPropriétaire + ", " + idPersonne + ");";
-    }
 
-    @Override
-    public String getSQLUpdate() {
-        return "UPDATE `proprietaire` SET `idPropriétaire` = " + idPropriétaire + ", `idPersonne` = " + idPersonne + " WHERE `proprietaire`.`idPropriétaire` = " + idPropriétaire + ";";
-    }
+  public long getIdPersonne() {
+    return idPersonne;
+  }
 
-    @Override
-    public String getSQLDelete() {
-        return "DELETE FROM `proprietaire` WHERE `proprietaire`.`idPropriétaire` = " + idPropriétaire + ";";
-    }
+  public void setIdPersonne(long idPersonne) {
+    this.idPersonne = idPersonne;
+  }
 
-    @Override
-    public String getSQLSelect() {
-        return "SELECT * FROM `proprietaire` WHERE `proprietaire`.`idPropriétaire` = " + idPropriétaire + ";";
-    }
+
+  public long getNbBienPossedes() {
+    return nbBienPossedes;
+  }
+
+  public void setNbBienPossedes(long nbBienPossedes) {
+    this.nbBienPossedes = nbBienPossedes;
+  }
+
 }

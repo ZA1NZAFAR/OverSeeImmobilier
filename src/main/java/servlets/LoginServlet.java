@@ -1,5 +1,6 @@
 package servlets;
 
+import com.mysql.cj.util.StringUtils;
 import lombok.SneakyThrows;
 import models.AgentImmobilier;
 import tools.DatabaseConnector;
@@ -22,11 +23,8 @@ public class LoginServlet extends HttpServlet {
 
         DatabaseConnector databaseConnector = new DatabaseConnector();
         AgentImmobilier agentImmobilier;
-        if ((agentImmobilier = databaseConnector.login(username, password)) != null) {
-            req.setAttribute("idAgent", databaseConnector.getPersonneById((int) agentImmobilier.getIdPersonne()));
-            req.setAttribute("idPerson", agentImmobilier.getIdPersonne());
-            req.setAttribute("role", agentImmobilier.getEstAdministrateur().equals("oui") ? "admin" : "agent");
-            resp.sendRedirect("views/accueil.jsp");
+        if (StringUtils.isStrictlyNumeric(username) && (agentImmobilier = databaseConnector.login(username, password)) != null) {
+            resp.sendRedirect("views/accueil.jsp?idAgent=" + agentImmobilier.getIdAgentImmobilier());
         } else {
             req.setAttribute("message", "Unable to login with the given credentials");
             HtmlDisplayer.processRequest(req, resp);

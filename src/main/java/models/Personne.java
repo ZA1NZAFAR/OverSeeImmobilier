@@ -1,16 +1,10 @@
 package models;
 
-
-import interfaces.SQLable;
-import lombok.*;
+import lombok.Builder;
 import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
 @SuperBuilder
-@NoArgsConstructor
-@AllArgsConstructor
-public class Personne implements SQLable {
+public class Personne {
 
     private long idPersonne;
     private String nom;
@@ -19,7 +13,6 @@ public class Personne implements SQLable {
     private String adresse;
     private String ville;
     private long codePostal;
-    private long nbBienPossedes;
 
 
     public long getIdPersonne() {
@@ -84,36 +77,7 @@ public class Personne implements SQLable {
         this.codePostal = codePostal;
     }
 
-
-    public long getNbBienPossedes() {
-        return nbBienPossedes;
-    }
-
-    public void setNbBienPossedes(long nbBienPossedes) {
-        this.nbBienPossedes = nbBienPossedes;
-    }
-
-    @Override
-    public String getSQLInsert() {
-        return "INSERT INTO personne (nom, prenom, numeroTel, adresse, ville, codePostal, nbBienPossedes) VALUES ('" + nom + "', '" + prenom + "', '" + numeroTel + "', '" + adresse + "', '" + ville + "', " + codePostal + ", " + nbBienPossedes + ")";
-    }
-
-    @Override
-    public String getSQLUpdate() {
-        return "UPDATE personne SET nom = '" + nom + "', prenom = '" + prenom + "', numeroTel = '" + numeroTel + "', adresse = '" + adresse + "', ville = '" + ville + "', codePostal = " + codePostal + ", nbBienPossedes = " + nbBienPossedes + " WHERE id = " + idPersonne + ";";
-    }
-
-    @Override
-    public String getSQLDelete() {
-        return "DELETE FROM personne WHERE id = " + idPersonne + ";";
-    }
-
-    @Override
-    public String getSQLSelect() {
-        return "SELECT * FROM personne WHERE id = " + idPersonne + ";";
-    }
-
     public String getNomComplet() {
-        return nom + " " + prenom;
+        return this.prenom + " " + this.nom;
     }
 }

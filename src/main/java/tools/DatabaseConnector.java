@@ -1,9 +1,6 @@
 package tools;
 
-import models.AgentImmobilier;
-import models.Personne;
-import models.Propriete;
-import models.Log;
+import models.*;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -33,6 +30,18 @@ public class DatabaseConnector {
 
     public static void close() throws SQLException {
         dbConnection.close();
+    }
+
+    public static boolean isAdmin(String idAgent) {
+        try {
+            ResultSet rs = executeQuery("SELECT estAdministrateur FROM AgentImmobilier WHERE idAgentImmobilier = " + idAgent);
+            if (rs.next()) {
+                return rs.getString("estAdministrateur").equals("oui");
+            } else
+                return false;
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not login", e);
+        }
     }
 
     public AgentImmobilier login(String username, String password) throws SQLException {
@@ -70,6 +79,18 @@ public class DatabaseConnector {
             QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
             ResultSetHandler<List<Propriete>> h = new BeanListHandler<>(Propriete.class);
             proprietes = run.query("SELECT * FROM Propriete", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all proprietes", e);
+        }
+        return proprietes;
+    }
+
+    public static List<Proprietaire> getAllProprietaires() {
+        List<Proprietaire> proprietes = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<Proprietaire>> h = new BeanListHandler<>(Proprietaire.class);
+            proprietes = run.query("SELECT * FROM Proprietaire ", h);
         } catch (SQLException e) {
             throw new RuntimeException("Could not get all proprietes", e);
         }

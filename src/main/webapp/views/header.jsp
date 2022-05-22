@@ -1,14 +1,16 @@
 <!-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+
 
 </head>
 <body>
-<a href="accueil.jsp"><img src="images/logo.png"/> </a>
+<a href="../accueil.jsp"><img src="../images/logo.png"/> </a>
 
 <ul>
     <li><a href="biens/gestion.jsp"><img src="images/immeubles.png" /> </a></li>

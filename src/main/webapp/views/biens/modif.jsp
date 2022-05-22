@@ -1,6 +1,7 @@
 <%@ page import="models.Propriete" %>
 <%@ page import="tools.DatabaseConnector" %>
 <%@ page import="java.util.Objects" %>
+<%@ page import="models.Proprietaire" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!doctype html>
@@ -14,7 +15,7 @@
 
 <body>
 <header>
-    <jsp:include page="../header.html"/>
+    <jsp:include page="../header.jsp"/>
 </header>
 
 
@@ -61,9 +62,13 @@
 
             <label id="lbl_prop">Proprietaire</label>
             <select name="list_prop" id="list_prop">
-                <option><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) p.getIdProprietaire())).getNomComplet()%></option>
-                <option>prop1</option>
-                <option>prop2</option>
+                <option value="<%=p.getIdProprietaire()%>"><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) p.getIdProprietaire())).getNomComplet()%>
+                </option>
+                <% for (Proprietaire personne : DatabaseConnector.getAllProprietaires()) { %>
+                <option
+                        value="<%=personne.getIdProprietaire()%>"><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) personne.getIdProprietaire())).getNomComplet()%>
+                </option>
+                <% } %>
             </select>
 
             <label id="lbl_adr">Adresse</label>
