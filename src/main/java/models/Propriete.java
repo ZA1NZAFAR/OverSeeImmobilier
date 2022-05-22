@@ -7,11 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import tools.DatabaseConnector;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -31,113 +27,6 @@ public class Propriete implements SQLable, HTMLable {
     private Date dateDisponibilite;
     private long idProprietaire;
 
-
-    public long getNumeroReference() {
-        return numeroReference;
-    }
-
-    public void setNumeroReference(long numeroReference) {
-        this.numeroReference = numeroReference;
-    }
-
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-
-    public long getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(long codePostal) {
-        this.codePostal = codePostal;
-    }
-
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-
-    public long getNombreDePièce() {
-        return nombre_de_piece;
-    }
-
-    public void setNombreDePièce(long nombreDePièce) {
-        this.nombre_de_piece = nombreDePièce;
-    }
-
-
-    public double getSuperficie() {
-        return superficie;
-    }
-
-    public void setSuperficie(double superficie) {
-        this.superficie = superficie;
-    }
-
-
-    public String getEtat_d_habitation() {
-        return etat_d_habitation;
-    }
-
-    public void setEtat_d_habitation(String etat_d_habitation) {
-        this.etat_d_habitation = etat_d_habitation;
-    }
-
-
-    public long getGarage() {
-        return garage;
-    }
-
-    public void setGarage(long garage) {
-        this.garage = garage;
-    }
-
-
-    public double getPrixInitial() {
-        return prixInitial;
-    }
-
-    public void setPrixInitial(double prixInitial) {
-        this.prixInitial = prixInitial;
-    }
-
-
-    public java.sql.Date getDateDisponibilite() {
-        return dateDisponibilite;
-    }
-
-    public void setDateDisponibilite(java.sql.Date dateDisponibilite) {
-        this.dateDisponibilite = dateDisponibilite;
-    }
-
-
-    public long getIdProprietaire() {
-        return idProprietaire;
-    }
-
-    public void setIdProprietaire(long idProprietaire) {
-        this.idProprietaire = idProprietaire;
-    }
 
     @Override
     public String getSQLInsert() {
@@ -197,7 +86,7 @@ public class Propriete implements SQLable, HTMLable {
                 "<td>" + etat_d_habitation + "</td>" +
                 "<td>" + garage + "</td>" +
                 "<td>" + prixInitial + "</td>" +
-                "<td>" + Objects.requireNonNull(DatabaseConnector.getPersonneById((int) idProprietaire)).getNomComplet() + "</td>" +
+                "<td>" + Objects.requireNonNull(DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById((int) idProprietaire).getIdPersonne())).getNomComplet() + "</td>" +
                 "<td>" + adresse + "</td>" +
                 "<td>" + codePostal + "</td>" +
                 "<td>" + ville + "</td>" +

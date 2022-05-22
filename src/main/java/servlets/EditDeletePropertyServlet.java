@@ -25,20 +25,22 @@ public class EditDeletePropertyServlet extends HttpServlet {
             resp.sendRedirect("views/biens/gestion.jsp");
         } else if (action.equals("update")) {
             DatabaseConnector.executeUpdate("UPDATE Propriete SET adresse = '" +
-                    req.getAttribute("tf_adr") + "', ville = '" +
-                    req.getAttribute("tf_ville") + "', codePostal = " +
-                    req.getAttribute("tf_cp") + ", type = '" +
-                    req.getAttribute("listT_biens") + "', nombreDePiece = " +
-                    req.getAttribute("stepper_nbPiece") + ", superficie = " +
-                    req.getAttribute("tf_superficie") + ", etatDHabitation = '" +
-                    req.getAttribute("list_type") + "', garage = " +
-                    req.getAttribute("stepper_garage") + ", prixInitial = " +
-                    req.getAttribute("???") + ", dateDisponibilite = '" +
-                    req.getAttribute("date") + "', idProprietaire = " +
-                    req.getAttribute("???") + " WHERE numeroReference = " +
-                    req.getAttribute("ref_bien") + ";");
-            DatabaseConnector.log(Log.builder().idAgent(0).action("Modification d'un bien").information("TODO! Add query here!").build());
-            resp.sendRedirect("views/accueil.jsp");
+                    req.getParameter("tf_adr") + "', ville = '" +
+                    req.getParameter("tf_ville") + "', codePostal = " +
+                    req.getParameter("tf_cp") + ", type = '" +
+                    req.getParameter("listT_biens") + "', nombre_De_Piece = " +
+                    req.getParameter("stepper_nbPiece") + ", superficie = " +
+                    req.getParameter("tf_superficie") + ", etat_d_habitation = '" +
+                    req.getParameter("list_type") + "', garage = " +
+                    req.getParameter("stepper_garage") + ", prixInitial = " +
+                    req.getParameter("stepper_prix") + ", dateDisponibilite = '" +
+                    req.getParameter("date") + "', idProprietaire = " +
+                    req.getParameter("list_prop") + " WHERE numeroReference = " +
+                    req.getParameter("refBien") + ";");
+            DatabaseConnector.log(Log.builder().idAgent(0).action("Modification").information("TODO! Add query here!").build());
+            resp.sendRedirect("views/biens/gestion.jsp");
+        }else if (action.equals("add")) {
+
         }
 
     }

@@ -15,7 +15,9 @@
     <div style="padding:20vh;">
         <img src="images/logo.png"/>
     </div>
-    <p> Bonjour Agent [insert nom], que voulez-vous faire ? </p>
+    <p> Bonjour
+        <%=DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById(Integer.parseInt(request.getParameter("idAgent"))).getIdPersonne()).getNomComplet()%>
+        , que voulez-vous faire ? </p>
     <a href="biens/gestion.jsp" target="_self">
         <button>Gérer les biens</button>
     </a>

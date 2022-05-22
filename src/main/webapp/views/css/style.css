@@ -28,9 +28,7 @@ button,input[type=submit]{
     background-color:white;
     border:1px solid #000;
     border-radius: 2vw;
-    padding:1.5vw;
     margin: 1vw;
-
 }
 
 button:hover,input[type=submit]:hover{
@@ -112,7 +110,7 @@ a img{
 ul {
     position:fixed;
     top: 0vw;
-    left: 25vw;
+    left: 15%;
     list-style-type: none;
 
 }

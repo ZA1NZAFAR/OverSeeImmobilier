@@ -56,36 +56,56 @@ public class DatabaseConnector {
         }
     }
 
-    public AgentImmobilier login(String username, String password) throws SQLException {
+    public static AgentImmobilier getAgentById(int idAgent) {
+        AgentImmobilier agent = null;
         try {
-            ResultSet rs = executeQuery("SELECT * FROM AgentImmobilier WHERE idAgentImmobilier = '" + username + "' AND mdp = '" + password + "'");
-            if (rs.next()) {
-                return AgentImmobilier
-                        .builder()
-                        .idAgentImmobilier(rs.getInt("idAgentImmobilier"))
-                        .estAdministrateur(rs.getString("estAdministrateur"))
-                        .idPersonne(rs.getInt("idPersonne"))
-                        .build();
-            } else
-                return null;
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<AgentImmobilier> h = new BeanHandler<>(AgentImmobilier.class);
+            agent = run.query("SELECT * FROM AgentImmobilier WHERE idAgentImmobilier = " + idAgent, h);
         } catch (SQLException e) {
-            throw new RuntimeException("Could not login", e);
+            throw new RuntimeException("Could not get all proprietes", e);
         }
+        return agent;
+    }
+
+    public static Proprietaire getProprietaireById(int idProprietaire) {
+        Proprietaire prop = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Proprietaire> h = new BeanHandler<>(Proprietaire.class);
+            prop = run.query("SELECT * FROM Proprietaire WHERE idProprietaire = " + idProprietaire, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all proprietes", e);
+        }
+        return prop;
+    }
+
+    public AgentImmobilier login(String username, String password) throws SQLException {
+
+        AgentImmobilier personne = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<AgentImmobilier> h = new BeanHandler<>(AgentImmobilier.class);
+            personne = run.query("SELECT * FROM AgentImmobilier WHERE idAgentImmobilier = '" + username + "' AND mdp = '" + password + "'", h);
+        } catch (SQLException e) {
+            return null;
+        }
+        return personne;
     }
 
     public static Personne getPersonneById(int idPersonne) {
+        Personne personne = null;
         try {
-            ResultSet rs = executeQuery("SELECT * FROM Personne WHERE idPersonne = " + idPersonne);
-            if (rs.next()) {
-                return Personne.builder().idPersonne(idPersonne).nom(rs.getString("nom")).prenom(rs.getString("prenom")).build();
-            } else
-                return null;
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Personne> h = new BeanHandler<>(Personne.class);
+            personne = run.query("SELECT * FROM Personne WHERE idPersonne = " + idPersonne, h);
         } catch (SQLException e) {
-            throw new RuntimeException("Could not login", e);
+            throw new RuntimeException("Could not get all proprietes", e);
         }
+        return personne;
     }
 
-    public static List<Propriete> getAllProprietes() {
+    public static List<Propriete>   getAllProprietes() {
         List<Propriete> proprietes = new ArrayList<>();
         try {
             QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
@@ -98,15 +118,15 @@ public class DatabaseConnector {
     }
 
     public static List<Proprietaire> getAllProprietaires() {
-        List<Proprietaire> proprietes = new ArrayList<>();
+        List<Proprietaire> proprietaires = new ArrayList<>();
         try {
             QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
             ResultSetHandler<List<Proprietaire>> h = new BeanListHandler<>(Proprietaire.class);
-            proprietes = run.query("SELECT * FROM Proprietaire ", h);
+            proprietaires = run.query("SELECT * FROM Proprietaire ", h);
         } catch (SQLException e) {
             throw new RuntimeException("Could not get all proprietes", e);
         }
-        return proprietes;
+        return proprietaires;
     }
 
     public static Propriete getProprieteById(int idPropriete) {
@@ -120,6 +140,6 @@ public class DatabaseConnector {
     }
 
     public static void log(Log log) throws SQLException {
-        executeQuery(log.getSQLInsert());
+        executeUpdate(log.getSQLInsert());
     }
 }

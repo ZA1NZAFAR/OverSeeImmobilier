@@ -19,7 +19,6 @@
 </header>
 
 
-
 <div style="text-align: center;">
     <h1>Modification du bien</h1></div>
 
@@ -27,10 +26,10 @@
 
 <div id="cadre">
     <div id="formulaire">
-        <form action="" method="post">
+        <form action="/OverSeeImmobilier/EditDeletePropertyServlet" method="post">
 
             <label id="lbl_refBien">Référence du bien</label>
-            <input type="text" id="refBien" name="refBien" value="<%=p.getNumeroReference()%>" disabled="true"/>
+            <input type="text" id="refBien" name="refBien" value="<%=p.getNumeroReference()%>" readonly="readonly"/>
 
             <label id="lbl_type">Type du bien</label>
             <select name="listT_biens">
@@ -39,7 +38,8 @@
             </select>
 
             <label id="lbl_nbPiece">Nombre de pièce</label>
-            <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100" value="<%=p.getNombre_de_piece()%>"/>
+            <input type="number" id="stepper_nbPiece" name="stepper_nbPiece" min="1" max="100"
+                   value="<%=p.getNombre_de_piece()%>"/>
 
             <label id="lbl_superficie">Superficie</label>
             <input type="text" id="tf_superficie" name="tf_superficie" value="<%=p.getSuperficie()%>">
@@ -56,18 +56,19 @@
 
 
             <label id="lbl_prix">Prix</label>
-            <input type="number" id="stepper_prix" name="stepper_prix" min="0"  value="0" />
+            <input type="number" id="stepper_prix" name="stepper_prix" min="0" value="<%=p.getPrixInitial()%>"/>
             <br/>
 
 
             <label id="lbl_prop">Proprietaire</label>
             <select name="list_prop" id="list_prop">
-                <option value="<%=p.getIdProprietaire()%>"><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) p.getIdProprietaire())).getNomComplet()%>
+                <option value="<%=p.getIdProprietaire()%>"><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById((int) p.getIdProprietaire()).getIdPersonne())).getNomComplet()%>
                 </option>
                 <% for (Proprietaire personne : DatabaseConnector.getAllProprietaires()) { %>
-                <option
-                        value="<%=personne.getIdProprietaire()%>"><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) personne.getIdProprietaire())).getNomComplet()%>
+
+                <option value="<%=personne.getIdProprietaire()%>"><%=Objects.requireNonNull(DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById((int) personne.getIdProprietaire()).getIdPersonne())).getNomComplet()%>
                 </option>
+
                 <% } %>
             </select>
 
@@ -82,6 +83,8 @@
 
             <label id="lbl_dispo">Disponibilité</label>
             <input type="date" id="date" name="date" value="<%=p.getDateDisponibilite()%>">
+
+            <input type="hidden" name="action" value="update">
 
             <div style="text-align: center;">
                 <input type="submit" name="btn_submit" id="btn_submit" value="Modifier le bien"></div>

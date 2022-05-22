@@ -7,7 +7,6 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@SuperBuilder
 public class AgentImmobilier extends Personne implements SQLable {
 
     private long idAgentImmobilier;
