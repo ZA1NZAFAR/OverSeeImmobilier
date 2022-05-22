@@ -45,16 +45,16 @@
     <h1> Liste des biens immobilier</h1>
 </center>
 <div class="btn">
-    <a href="ajout.html" target="_self">
+    <a href="ajout.jsp" target="_self">
         <button>Ajouter un bien</button>
     </a>
     <div id="droite">
-        <form action="/OverSeeImmobilier/EditDeletePropertyServlet" method="post">
+        <form action="/OverSeeImmobilier/ManagePropertyServlet" method="post">
             <input type="hidden" id="propertyToEdit" name="propertyId" value="">
             <input type="hidden" name="action" value="edit">
             <input type="submit" name="btn_update" id="btn_update" value="Modifier">
         </form>
-        <form action="/OverSeeImmobilier/EditDeletePropertyServlet" method="post">
+        <form action="/OverSeeImmobilier/ManagePropertyServlet" method="post">
             <input type="hidden" id="propertyToDelete" name="propertyId" value="">
             <input type="hidden" name="action" value="delete">
             <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">

@@ -5,6 +5,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -105,7 +106,7 @@ public class DatabaseConnector {
         return personne;
     }
 
-    public static List<Propriete>   getAllProprietes() {
+    public static List<Propriete> getAllProprietes() {
         List<Propriete> proprietes = new ArrayList<>();
         try {
             QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
@@ -141,5 +142,11 @@ public class DatabaseConnector {
 
     public static void log(Log log) throws SQLException {
         executeUpdate(log.getSQLInsert());
+    }
+
+    public static int getLastId(String table, String column) throws SQLException {
+        QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+        ResultSetHandler<Integer> h = new ScalarHandler<>();
+        return run.query("SELECT MAX(" + column + ") FROM " + table, h);
     }
 }
