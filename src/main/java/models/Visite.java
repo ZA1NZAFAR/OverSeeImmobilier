@@ -107,7 +107,7 @@ public class Visite implements SQLable {
 
     public String toHTML() {
         return "<tr>" +
-                "<td><input type=\"checkbox\" name=\"" + numeroReference + "#" + idAgentImmobilier + "#" + idProprietaire + "#" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
+                "<td><input type=\"checkbox\" name=\"" + numeroReference + "~" + idAgentImmobilier + "~" + idProprietaire + "~" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
                 "<td>" + dateVisite + "</td>" +
                 "<td>" + heureVisite + "</td>" +
                 "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getAdressComplet() + "</td>" +

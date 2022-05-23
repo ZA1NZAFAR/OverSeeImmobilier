@@ -13,6 +13,6 @@ public class IDsDTO {
 
     @Override
     public String toString() {
-        return numeroReferenceBien + "#" + idAgentImmobilier + "#" + idProprietaire + "#" + idClient;
+        return numeroReferenceBien + "~" + idAgentImmobilier + "~" + idProprietaire + "~" + idClient;
     }
 }

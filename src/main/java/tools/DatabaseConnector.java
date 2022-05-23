@@ -193,6 +193,23 @@ public class DatabaseConnector {
         return transactions;
     }
 
+    public static Transaction getTransactionUsing(IDsDTO v) {
+        Transaction transaction = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Transaction> h = new BeanHandler<>(Transaction.class);
+            transaction = run.query("SELECT * FROM Transaction " +
+                            "WHERE numeroReference = " + v.getNumeroReferenceBien() +
+                            " AND idClient = " + v.getIdClient() +
+                            " AND idProprietaire = " + v.getIdProprietaire() +
+                            " AND idAgentImmobilier = " + v.getIdAgentImmobilier()
+                    , h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all transactions", e);
+        }
+        return transaction;
+    }
+
     public AgentImmobilier login(String username, String password) throws SQLException {
 
         AgentImmobilier personne = null;

@@ -45,12 +45,12 @@
     <button>Ajouter un bien</button>
 </a>
 <div id="droite">
-    <form action="/OverSeeImmobilier/" method="post">
+    <form action="/OverSeeImmobilier/ManageTransactionServlet" method="post">
         <input type="hidden" id="propertyToEdit" name="transactionString" value="">
         <input type="hidden" name="action" value="edit">
         <input type="submit" name="btn_update" id="btn_update" value="Modifier">
     </form>
-    <form action="" method="post">
+    <form action="/OverSeeImmobilier/ManageTransactionServlet" method="post">
         <input type="hidden" id="propertyToDelete" name="transactionString" value="">
         <input type="hidden" name="action" value="delete">
         <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">

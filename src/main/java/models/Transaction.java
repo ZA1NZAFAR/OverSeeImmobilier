@@ -60,7 +60,7 @@ public class Transaction implements SQLable {
 
     public String toHTML() {
         return "<tr>" +
-                "<td><input type=\"checkbox\" name=\"" + numeroReference + "#" + idAgentImmobilier + "#" + idProprietaire + "#" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
+                "<td><input type=\"checkbox\" name=\"" + numeroReference + "~" + idAgentImmobilier + "~" + idProprietaire + "~" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
                 "<td>" + datevente + "</td>" +
                 "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getAdressComplet() + "</td>" +
                 "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById((int) idProprietaire).getIdPersonne()).getNomComplet() + "</td>" +

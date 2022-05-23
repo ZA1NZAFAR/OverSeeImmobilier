@@ -18,7 +18,7 @@ public class ManageTransactionServlet extends HttpServlet {
         String action = req.getParameter("action");
         IDsDTO visitDTO = null;
         if (!action.equals("add"))
-            visitDTO = Helper.visitStringToDTO(req.getParameter("visitString"));
+            visitDTO = Helper.visitStringToDTO(req.getParameter("transactionString"));
         switch (action) {
             case "add":
                 DatabaseConnector.executeUpdate("INSERT INTO Transaction (" +
@@ -37,14 +37,14 @@ public class ManageTransactionServlet extends HttpServlet {
                         req.getParameter("list_client") + ", " +
                         req.getParameter("list_prop") + ", " +
                         req.getParameter("list_agent") + ")");
-                DatabaseConnector.log(Log.builder().idAgent(Long.parseLong(req.getParameter("list_agent"))).action("Ajout").information("Visite").build());
+                DatabaseConnector.log(Log.builder().idAgent(Long.parseLong(req.getParameter("list_agent"))).action("Ajout").information("Transaction").build());
                 resp.sendRedirect("views/transactions/gestion.jsp");
                 break;
             case "edit":
-                resp.sendRedirect("views/visites/modif.jsp?visitString=" + visitDTO.toString());
+                resp.sendRedirect("views/transactions/modif.jsp?transactionString=" + visitDTO.toString());
                 break;
             case "delete":
-                DatabaseConnector.executeDelete("DELETE FROM Visite " +
+                DatabaseConnector.executeDelete("DELETE FROM Transaction " +
                         "WHERE " +
                         "numeroReference = " + visitDTO.getNumeroReferenceBien() + "" +
                         " AND " +
@@ -53,14 +53,14 @@ public class ManageTransactionServlet extends HttpServlet {
                         "idAgentImmobilier = '" + visitDTO.getIdAgentImmobilier() + "'" +
                         " AND " +
                         "idProprietaire = " + visitDTO.getIdProprietaire() + ";");
-                DatabaseConnector.log(Log.builder().idAgent(visitDTO.getIdAgentImmobilier()).action("Suppression").information("Visite : " + visitDTO).build());
-                resp.sendRedirect("views/visites/gestion.jsp");
+                DatabaseConnector.log(Log.builder().idAgent(visitDTO.getIdAgentImmobilier()).action("Suppression").information("Transaction : " + visitDTO).build());
+                resp.sendRedirect("views/transactions/gestion.jsp");
                 break;
             case "update":
-                DatabaseConnector.executeUpdate("UPDATE Visite " +
+                DatabaseConnector.executeUpdate("UPDATE Transaction " +
                         "SET " +
-                        "dateVisite = '" + req.getParameter("dateVisite") + "', " +
-                        "heureVisite = '" + req.getParameter("heureVisite") + "', " +
+                        "dateVente = '" + req.getParameter("dateVente") + "', " +
+                        "commission = " + req.getParameter("tf_commision") + ", " +
                         "numeroReference = " + req.getParameter("list_ref") + ", " +
                         "idClient = " + req.getParameter("list_client") + ", " +
                         "idProprietaire = " + req.getParameter("list_prop") + ", " +
@@ -73,8 +73,8 @@ public class ManageTransactionServlet extends HttpServlet {
                         "idAgentImmobilier = '" + visitDTO.getIdAgentImmobilier() + "'" +
                         " AND " +
                         "idProprietaire = " + visitDTO.getIdProprietaire() + ";");
-                DatabaseConnector.log(Log.builder().idAgent(visitDTO.getIdAgentImmobilier()).action("Modification").information("Visite : " + visitDTO).build());
-                resp.sendRedirect("views/visites/gestion.jsp");
+                DatabaseConnector.log(Log.builder().idAgent(visitDTO.getIdAgentImmobilier()).action("Modification").information("Transaction : " + visitDTO).build());
+                resp.sendRedirect("views/transactions/gestion.jsp");
                 break;
 
         }

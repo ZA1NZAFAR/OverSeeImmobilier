@@ -50,8 +50,8 @@
             <label id="lbl_agent">Agent immobilier</label>
             <select name="list_agent" id="list_agent">
                 <option value="<%=v.getIdAgentImmobilier()%>"><%=v.getIdAgentImmobilier() + " - " + DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById((int) v.getIdAgentImmobilier()).getIdPersonne()).getNomComplet()%>
-                        <% for (Client client : DatabaseConnector.getAllClients()) { %>
-                <option value="<%=client.getIdClient()%>"><%=client.getIdClient() + " - " + DatabaseConnector.getPersonneById((int) client.getIdPersonne()).getNomComplet()%>
+                        <% for (AgentImmobilier agentImmobilier : DatabaseConnector.getAllAgentImmobiliers()) { %>
+                <option value="<%=agentImmobilier.getIdAgentImmobilier()%>"><%=agentImmobilier.getIdAgentImmobilier() + " - " + DatabaseConnector.getPersonneById((int) agentImmobilier.getIdPersonne()).getNomComplet()%>
                 </option>
                 <% } %>
             </select>
@@ -61,8 +61,8 @@
             <label id="lbl_client">Client</label>
             <select name="list_client" id="list_client">
                 <option value="<%=v.getIdClient()%>"><%=v.getIdClient() + " - " + DatabaseConnector.getPersonneById((int) DatabaseConnector.getClientById((int) v.getIdClient()).getIdPersonne()).getNomComplet()%>
-                        <% for (Proprietaire proprietaire : DatabaseConnector.getAllProprietaires()) { %>
-                <option value="<%=proprietaire.getIdProprietaire()%>"><%=proprietaire.getIdProprietaire() + " - " + DatabaseConnector.getPersonneById((int) proprietaire.getIdPersonne()).getNomComplet()%>
+                        <% for (Client client : DatabaseConnector.getAllClients()) { %>
+                <option value="<%=client.getIdClient()%>"><%=client.getIdClient() + " - " + DatabaseConnector.getPersonneById((int) client.getIdPersonne()).getNomComplet()%>
                 </option>
                 <% } %>
             </select>
