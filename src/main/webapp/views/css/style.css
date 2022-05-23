@@ -27,8 +27,9 @@ thead th{
 button,input[type=submit]{
     background-color:white;
     border:1px solid #000;
-    border-radius: 2vw;
-    margin: 1vw;
+    border-radius: 0.6vw;
+    margin: 1.2vw;
+    padding: 1vw;
 }
 
 button:hover,input[type=submit]:hover{
@@ -56,14 +57,14 @@ button:hover,input[type=submit]:hover{
     border: 3px solid white ;
     border-width: 2vw;
     font-family: Tahoma;
-    background-color:#77B5FE;
+   /*background-color:#77B5FE;*/
     padding: 5vw;
 
 
 }
 
 #formulaire label{
-    color: white;
+    color: black;
     position: relative;
     top: 10px;
     left: 30%;
@@ -83,6 +84,7 @@ button:hover,input[type=submit]:hover{
 
 
 }
+
 #formulaire p{
     font-size: 2vw;
     color:#40a0ff;

@@ -38,7 +38,7 @@
 </head>
 <body>
 <header>
-    <jsp:include page="../header.jsp"/>
+    <jsp:include page="../header.html"/>
 </header>
 
 <div style="text-align: center;">
