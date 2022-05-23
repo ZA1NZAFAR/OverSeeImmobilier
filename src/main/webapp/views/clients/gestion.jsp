@@ -50,12 +50,12 @@
 <div id="droite">
     <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
         <input type="hidden" id="propertyToEdit" name="clientId" value="">
-        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="action" value="editClient">
         <input type="submit" name="btn_update" id="btn_update" value="Modifier">
     </form>
     <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
         <input type="hidden" id="propertyToDelete" name="clientId" value="">
-        <input type="hidden" name="action" value="delete">
+        <input type="hidden" name="action" value="deleteClient">
         <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">
     </form>
 </div>

@@ -117,6 +117,18 @@ public class DatabaseConnector {
         return prop;
     }
 
+    public static Client getClientByPersonneId(int clientId) {
+        Client client = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Client> h = new BeanHandler<>(Client.class);
+            client = run.query("SELECT * FROM Client WHERE idPersonne = " + clientId, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all clients", e);
+        }
+        return client;
+    }
+
     public AgentImmobilier login(String username, String password) throws SQLException {
 
         AgentImmobilier personne = null;

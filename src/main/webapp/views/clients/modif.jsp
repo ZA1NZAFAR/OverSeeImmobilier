@@ -28,9 +28,9 @@
 <div id="cadre">
     <div id="formulaire">
 
-        <% Client client = DatabaseConnector.getClientById(Integer.parseInt(request.getParameter("clientId")));%>
-        <% Personne person = DatabaseConnector.getPersonneById((int) client.getIdPersonne());%>
-        <% Proprietaire prop = DatabaseConnector.getProprietaireByPersonneId((int) client.getIdPersonne());%>
+        <% Personne person = DatabaseConnector.getPersonneById(Integer.parseInt(request.getParameter("personId")));%>
+        <% Client client = DatabaseConnector.getClientByPersonneId((int) person.getIdPersonne());%>
+        <% Proprietaire prop = DatabaseConnector.getProprietaireByPersonneId((int) person.getIdPersonne());%>
 
         <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
 

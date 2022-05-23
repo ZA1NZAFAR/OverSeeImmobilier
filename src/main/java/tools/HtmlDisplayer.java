@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class HtmlDisplayer {
-    public static void processRequest(HttpServletRequest request, HttpServletResponse response)
+    public static void processRequest(HttpServletRequest request, HttpServletResponse response, String message)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -19,7 +19,7 @@ public class HtmlDisplayer {
                     "    <link href=\"design.css\" rel=\"stylesheet\"/>\n" +
                     "</head>");
             out.println("<body class=\"TheMessage\">");
-            out.println("<h1>" + request.getAttribute("message") + "</h1>");
+            out.println("<h1>" + message+ "</h1>");
             out.println("<br><a href=\"index.jsp\">Homepage</a>");
             out.println("</body>");
             out.println("</html>");
