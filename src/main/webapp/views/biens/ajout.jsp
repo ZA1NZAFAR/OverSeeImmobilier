@@ -66,7 +66,7 @@
 
                 <% } %>
             </select>
-            <a href="../proprietaires/ajout.html" target="_self"
+            <a href="../clients/ajout.jsp" target="_self"
                style="font-size:1.5vw; position: relative; left:55vw; bottom:3.3vw;">Ajouter un proprietaire</a>
 
             <br/>

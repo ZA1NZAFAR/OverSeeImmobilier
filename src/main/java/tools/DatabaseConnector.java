@@ -129,6 +129,30 @@ public class DatabaseConnector {
         return client;
     }
 
+    public static List<AgentImmobilier> getAllAgentImmobiliers() {
+        List<AgentImmobilier> agentImmobiliers = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<AgentImmobilier>> h = new BeanListHandler<>(AgentImmobilier.class);
+            agentImmobiliers = run.query("SELECT * FROM AgentImmobilier", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all agentImmobiliers", e);
+        }
+        return agentImmobiliers;
+    }
+
+    public static AgentImmobilier getAgentImmobilierByPersonneId(int idPersonne) {
+        AgentImmobilier agentImmobilier = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<AgentImmobilier> h = new BeanHandler<>(AgentImmobilier.class);
+            agentImmobilier = run.query("SELECT * FROM AgentImmobilier WHERE idPersonne = " + idPersonne, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all agentImmobiliers", e);
+        }
+        return agentImmobilier;
+    }
+
     public AgentImmobilier login(String username, String password) throws SQLException {
 
         AgentImmobilier personne = null;

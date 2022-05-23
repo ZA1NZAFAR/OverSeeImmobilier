@@ -19,6 +19,8 @@ public class ManagePersonServlet extends HttpServlet {
         String clientId = req.getParameter("clientId");
         String proprietaireId = req.getParameter("propId");
         String personneId = req.getParameter("idPersonne");
+        String idAgent = req.getParameter("idAgent");
+
         long personId = -1;
         if (clientId != null) {
             personId = DatabaseConnector.getPersonneById((int) DatabaseConnector.getClientById(Integer.parseInt(clientId)).getIdPersonne()).getIdPersonne();
@@ -26,7 +28,9 @@ public class ManagePersonServlet extends HttpServlet {
             personId = DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById(Integer.parseInt(proprietaireId)).getIdPersonne()).getIdPersonne();
         } else if (personneId != null) {
             personId = DatabaseConnector.getPersonneById(Integer.parseInt(personneId)).getIdPersonne();
-        } else if (!action.equals("add")) {
+        } else if (idAgent!= null){
+            personId = DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById(Integer.parseInt(idAgent)).getIdPersonne()).getIdPersonne();
+        }else if (!action.equals("add")) {
             HtmlDisplayer.processRequest(req, resp, "No person selected");
         }
 
@@ -59,6 +63,7 @@ public class ManagePersonServlet extends HttpServlet {
                         "nom, " +
                         "prenom," +
                         "numeroTel," +
+                        "email," +
                         "adresse," +
                         "ville," +
                         "codePostal," +
@@ -68,6 +73,7 @@ public class ManagePersonServlet extends HttpServlet {
                         req.getParameter("tf_nom") + "', '" +
                         req.getParameter("tf_prenom") + "','" +
                         req.getParameter("tf_tel") + "','" +
+                        req.getParameter("tf_email") + "','" +
                         req.getParameter("tf_adr") + "','" +
                         req.getParameter("tf_ville") + "','" +
                         req.getParameter("tf_cp") + "','" +

@@ -72,6 +72,9 @@
             <label id="lbl_tel">Telephone</label>
             <input type="text" id="tf_tel" name="tf_tel">
 
+            <label id="lbl_email">Email</label>
+            <input type="text" id="tf_email" name="tf_email" value="">
+
             <label for="estProp"> Est Proprietaire</label><input type="checkbox" id="estProp" name="estProp" value="estProp">
 
             <%if (DatabaseConnector.isAdmin(((Long) request.getSession().getAttribute("idAgent")).intValue() + "")) {%>

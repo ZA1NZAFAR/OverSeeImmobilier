@@ -45,7 +45,7 @@
 		<div id="droite">
             <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
                 <input type="hidden" id="propertyToEdit" name="propId" value="">
-                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="action" value="edit">
                 <input type="submit" name="btn_update" id="btn_update" value="Modifier">
             </form>
             <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
