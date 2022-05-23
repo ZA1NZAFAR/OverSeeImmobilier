@@ -61,9 +61,12 @@ public class Client extends Personne implements SQLable {
                 "<td>" + idClient + "</td>" +
                 "<td>" + tmp.getNom() + "</td>" +
                 "<td>" + tmp.getPrenom() + "</td>" +
+                "<td>" + tmp.getDateNaissance() + "</td>" +
                 "<td>" + tmp.getAdresse() + "</td>" +
                 "<td>" + tmp.getCodePostal() + "</td>" +
                 "<td>" + tmp.getVille() + "</td>" +
+                "<td>" + tmp.getNumeroTel() + "</td>" +
+                "<td>" + tmp.getEmail() + "</td>" +
                 "<td>" + "TODO" + "</td>" +
                 "<td>" + "TODO" + "</td>" +
                 "</tr>";

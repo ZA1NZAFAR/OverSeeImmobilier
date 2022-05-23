@@ -31,13 +31,13 @@ public class DatabaseConnector {
 
     public static void executeDelete(String query) throws SQLException {
         // Disable foreign keys check
-        Statement stmt = dbConnection.createStatement();
-        stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-        stmt.close();
+//        Statement stmt = dbConnection.createStatement();
+//        stmt.execute("SET FOREIGN_KEY_CHECKS=0");
+//        stmt.close();
         dbConnection.createStatement().executeUpdate(query);
-        stmt = dbConnection.createStatement();
-        stmt.execute("SET FOREIGN_KEY_CHECKS=1");
-        stmt.close();
+//        stmt = dbConnection.createStatement();
+//        stmt.execute("SET FOREIGN_KEY_CHECKS=1");
+//        stmt.close();
     }
 
 
@@ -91,6 +91,30 @@ public class DatabaseConnector {
             throw new RuntimeException("Could not get all proprietes", e);
         }
         return proprietes;
+    }
+
+    public static Client getClientById(int clientId) {
+        Client client = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Client> h = new BeanHandler<>(Client.class);
+            client = run.query("SELECT * FROM Client WHERE idClient = " + clientId, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all clients", e);
+        }
+        return client;
+    }
+
+    public static Proprietaire getProprietaireByPersonneId(int idPersonne) {
+        Proprietaire prop = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Proprietaire> h = new BeanHandler<>(Proprietaire.class);
+            prop = run.query("SELECT * FROM Proprietaire WHERE idPersonne = " + idPersonne, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all proprietes", e);
+        }
+        return prop;
     }
 
     public AgentImmobilier login(String username, String password) throws SQLException {

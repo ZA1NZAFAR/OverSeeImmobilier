@@ -69,9 +69,12 @@
         <th>Identifiant</th>
         <th>Nom</th>
         <th>Prénom</th>
+        <th>Date de naissance</th>
         <th>Adresse</th>
         <th>Code postal</th>
         <th>Ville</th>
+        <th>Telephone</th>
+        <th>Email</th>
         <th>Nombre d'achat</th>
         <th>Nombre de location</th>
     </tr>

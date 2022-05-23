@@ -18,13 +18,26 @@ public class ManagePersonServlet extends HttpServlet {
         String id = req.getParameter("clientId");
         switch (action) {
             case "edit":
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Suppression").information("Propriété " + id).build());
-                resp.sendRedirect("views/clients/modif.jsp?propertyId=" + id);
+                resp.sendRedirect("views/clients/modif.jsp?clientId=" + id);
                 break;
             case "delete":
-                DatabaseConnector.executeDelete("DELETE FROM Client WHERE numeroReference = " + id);
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Suppression").information("Propriété " + id).build());
-                resp.sendRedirect("views/biens/gestion.jsp");
+                DatabaseConnector.executeDelete("DELETE FROM Personne WHERE idPersonne = " + DatabaseConnector.getPersonneById((int) DatabaseConnector.getClientById(Integer.parseInt(id)).getIdPersonne()).getIdPersonne());
+                DatabaseConnector.log(Log.builder().idAgent(0).action("Suppression").information("Personne " + id).build());
+                resp.sendRedirect("views/clients/gestion.jsp");
+                break;
+            case "update":
+                DatabaseConnector.executeUpdate("UPDATE Personne SET " +
+                        "nom = '" + req.getParameter("tf_nom") + "', " +
+                        "prenom = '" + req.getParameter("tf_prenom") + "', " +
+                        "dateNaissance = '" + req.getParameter("dateNaissance") + "', " +
+                        "adresse = '" + req.getParameter("tf_adr") + "', " +
+                        "ville = '" + req.getParameter("tf_ville") + "', " +
+                        "codePostal = '" + req.getParameter("tf_cp") + "', " +
+                        "numeroTel = '" + req.getParameter("tf_tel") + "', " +
+                        "email = '" + req.getParameter("email") + "' " +
+                        "WHERE idPersonne = " + req.getParameter("idPersonne"));
+                DatabaseConnector.log(Log.builder().idAgent(0).action("Update").information("Personne " + id).build());
+                resp.sendRedirect("views/clients/gestion.jsp");
                 break;
             case "add":
                 DatabaseConnector.executeUpdate("INSERT INTO Personne (" +

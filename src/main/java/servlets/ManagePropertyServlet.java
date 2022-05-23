@@ -20,7 +20,6 @@ public class ManagePropertyServlet extends HttpServlet {
         String propertyId = req.getParameter("propertyId");
         switch (action) {
             case "edit":
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Suppression").information("Propriété " + propertyId).build());
                 resp.sendRedirect("views/biens/modif.jsp?propertyId=" + propertyId);
                 break;
             case "delete":
