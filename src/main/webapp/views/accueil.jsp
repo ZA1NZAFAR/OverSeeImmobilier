@@ -24,7 +24,7 @@
     <a href="transactions/gestion.html" target="_self">
         <button>Gérer les transactions</button>
     </a>
-    <a href="visites/gestion.html" target="_self">
+    <a href="visites/gestion.jsp" target="_self">
         <button>Gérer les visites</button>
     </a>
     <a href="proprietaires/gestion.jsp" target="_self">

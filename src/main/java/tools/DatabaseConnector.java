@@ -153,6 +153,18 @@ public class DatabaseConnector {
         return agentImmobilier;
     }
 
+    public static List<Visite> getAllVisites() {
+        List<Visite> visites = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<Visite>> h = new BeanListHandler<>(Visite.class);
+            visites = run.query("SELECT * FROM Visite", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all visites", e);
+        }
+        return visites;
+    }
+
     public AgentImmobilier login(String username, String password) throws SQLException {
 
         AgentImmobilier personne = null;
