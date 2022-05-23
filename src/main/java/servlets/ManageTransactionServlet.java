@@ -1,8 +1,8 @@
 package servlets;
 
 import lombok.SneakyThrows;
-import models.Log;
 import models.IDsDTO;
+import models.Log;
 import tools.DatabaseConnector;
 import tools.Helper;
 
@@ -11,32 +11,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ManageVisitesServlet", urlPatterns = "/ManageVisitesServlet")
-public class ManageVisitesServlet extends HttpServlet {
+@WebServlet(name = "ManageTransactionServlet", urlPatterns = "/ManageTransactionServlet")
+public class ManageTransactionServlet extends HttpServlet {
     @SneakyThrows
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
         IDsDTO visitDTO = null;
-        if(!action.equals("add"))
+        if (!action.equals("add"))
             visitDTO = Helper.visitStringToDTO(req.getParameter("visitString"));
         switch (action) {
             case "add":
-                DatabaseConnector.executeUpdate("INSERT INTO Visite (" +
-                        "dateVisite, " +
-                        "heureVisite, " +
+                DatabaseConnector.executeUpdate("INSERT INTO Transaction (" +
+                        "datevente, " +
+                        "commission, " +
+                        "prixVente, " +
                         "numeroReference, " +
                         "idClient, " +
                         "idProprietaire, " +
                         "idAgentImmobilier) " +
                         "VALUES ('" +
-                        req.getParameter("dateVisite") + "', '" +
-                        req.getParameter("heureVisite") + "', " +
+                        req.getParameter("dateVente") + "', " +
+                        req.getParameter("tf_commision") + ", " +
+                        req.getParameter("tf_prixVente") + ", " +
                         req.getParameter("list_ref") + ", " +
                         req.getParameter("list_client") + ", " +
                         req.getParameter("list_prop") + ", " +
                         req.getParameter("list_agent") + ")");
                 DatabaseConnector.log(Log.builder().idAgent(Long.parseLong(req.getParameter("list_agent"))).action("Ajout").information("Visite").build());
-                resp.sendRedirect("views/visites/gestion.jsp");
+                resp.sendRedirect("views/transactions/gestion.jsp");
                 break;
             case "edit":
                 resp.sendRedirect("views/visites/modif.jsp?visitString=" + visitDTO.toString());

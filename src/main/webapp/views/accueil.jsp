@@ -21,7 +21,7 @@
     <a href="biens/gestion.jsp" target="_self">
         <button>Gérer les biens</button>
     </a>
-    <a href="transactions/gestion.html" target="_self">
+    <a href="transactions/gestion.jsp" target="_self">
         <button>Gérer les transactions</button>
     </a>
     <a href="visites/gestion.jsp" target="_self">

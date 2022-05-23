@@ -20,7 +20,7 @@
     <h1> Modification d'une visite</h1>
 </div>
 
-<% VisitInfoDTO v = Helper.visitStringToDTO(request.getParameter("visitString"));%>
+<% IDsDTO v = Helper.visitStringToDTO(request.getParameter("visitString"));%>
 <% Visite vi = DatabaseConnector.getVisitUsingDTO(v);%>
 
 

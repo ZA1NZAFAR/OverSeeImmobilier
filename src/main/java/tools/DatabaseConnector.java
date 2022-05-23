@@ -10,7 +10,6 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -165,7 +164,7 @@ public class DatabaseConnector {
         return visites;
     }
 
-    public static Visite getVisitUsingDTO(VisitInfoDTO dto) {
+    public static Visite getVisitUsingDTO(IDsDTO dto) {
         Visite visite = null;
         try {
             QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
@@ -180,6 +179,18 @@ public class DatabaseConnector {
             throw new RuntimeException("Could not get all visites", e);
         }
         return visite;
+    }
+
+    public static List<Transaction> getAllTransactions() {
+        List<Transaction> transactions = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<Transaction>> h = new BeanListHandler<>(Transaction.class);
+            transactions = run.query("SELECT * FROM Transaction", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all transactions", e);
+        }
+        return transactions;
     }
 
     public AgentImmobilier login(String username, String password) throws SQLException {

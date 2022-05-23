@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class VisitInfoDTO {
+public class IDsDTO {
     long idAgentImmobilier;
     long idClient;
     long idProprietaire;
