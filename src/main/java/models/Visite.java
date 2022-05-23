@@ -107,11 +107,12 @@ public class Visite implements SQLable {
 
     public String toHTML() {
         return "<tr>" +
-                "<td><input type=\"checkbox\" name=\"" + numeroReference + "$" + idAgentImmobilier + "$" + idProprietaire + "$" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
+                "<td><input type=\"checkbox\" name=\"" + numeroReference + "#" + idAgentImmobilier + "#" + idProprietaire + "#" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
                 "<td>" + dateVisite + "</td>" +
-                "<td>" + numeroReference + "</td>" +
-                "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById((int) idAgentImmobilier).getIdPersonne()).getNomComplet()+ "</td>" +
-                "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getClientById((int) idClient).getIdPersonne()).getNomComplet()+ "</td>" +
+                "<td>" + heureVisite + "</td>" +
+                "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getAdressComplet() + "</td>" +
+                "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById((int) idAgentImmobilier).getIdPersonne()).getNomComplet() + "</td>" +
+                "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getClientById((int) idClient).getIdPersonne()).getNomComplet() + "</td>" +
                 "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById((int) idProprietaire).getIdPersonne()).getNomComplet() + "</td>" +
                 "</tr>";
     }

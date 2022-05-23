@@ -10,6 +10,31 @@
     <meta charset="utf-8">
     <title>Gestion des visites</title>
     <link rel="stylesheet" href="../css/style.css">
+
+    <script>
+        function updateCheckBoxes() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            for (var checkbox of checkboxes) {
+                var toEdit = document.getElementById("propertyToEdit");
+                var toDelete = document.getElementById("propertyToDelete");
+                toEdit.setAttribute("value", checkbox.getAttribute("name"));
+                toDelete.setAttribute("value", checkbox.getAttribute("name"));
+            }
+
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
+            for (var checkbox of checkboxes) {
+                checkbox.disabled = true;
+            }
+
+            if (document.querySelectorAll('input[type="checkbox"]:disabled').length === document.querySelectorAll('input[type="checkbox"]').length) {
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]:disabled');
+                for (var checkbox of checkboxes) {
+                    checkbox.disabled = false;
+                }
+            }
+        }
+    </script>
+
 </head>
 <body>
 <header>
@@ -23,10 +48,14 @@
     <button>Ajouter une visite</button>
 </a>
 <div id="droite">
-    <form action="modif.html" method="post">
+    <form action="/OverSeeImmobilier/ManageVisitesServlet" method="post">
+        <input type="hidden" id="propertyToEdit" name="visitString" value="">
+        <input type="hidden" name="action" value="edit">
         <input type="submit" name="btn_update" id="btn_update" value="Modifier">
     </form>
-    <form action="" method="post">
+    <form action="/OverSeeImmobilier/ManageVisitesServlet" method="post">
+        <input type="hidden" id="propertyToDelete" name="visitString" value="">
+        <input type="hidden" name="action" value="delete">
         <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">
     </form>
 </div>
@@ -38,7 +67,8 @@
     <tr>
         <th></th>
         <th>Date de la visite</th>
-        <th>Référence du bien</th>
+        <th>Heure de la visite</th>
+        <th>Adresse du bien</th>
         <th>Agent en charge de la visite</th>
         <th>Client</th>
         <th>Proprietaire</th>

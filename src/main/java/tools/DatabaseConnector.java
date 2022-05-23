@@ -165,6 +165,23 @@ public class DatabaseConnector {
         return visites;
     }
 
+    public static Visite getVisitUsingDTO(VisitInfoDTO dto) {
+        Visite visite = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Visite> h = new BeanHandler<>(Visite.class);
+            visite = run.query("SELECT * FROM Visite " +
+                            "WHERE numeroReference = " + dto.getNumeroReferenceBien() +
+                            " AND idClient = " + dto.getIdClient() +
+                            " AND idProprietaire = " + dto.getIdProprietaire() +
+                            " AND idAgentImmobilier = " + dto.getIdAgentImmobilier()
+                    , h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all visites", e);
+        }
+        return visite;
+    }
+
     public AgentImmobilier login(String username, String password) throws SQLException {
 
         AgentImmobilier personne = null;
