@@ -21,20 +21,20 @@
     <a href="biens/gestion.jsp" target="_self">
         <button>Gérer les biens</button>
     </a>
-    <a href="transactions/gestion.html" target="_self">
+    <a href="transactions/gestion.jsp" target="_self">
         <button>Gérer les transactions</button>
     </a>
-    <a href="visites/gestion.html" target="_self">
+    <a href="visites/gestion.jsp" target="_self">
         <button>Gérer les visites</button>
     </a>
-    <a href="proprietaires/gestion.html" target="_self">
+    <a href="proprietaires/gestion.jsp" target="_self">
         <button>Gérer les propietaires</button>
     </a>
     <a href="clients/gestion.jsp" target="_self">
         <button>Gérer les clients</button>
     </a>
     <%if (DatabaseConnector.isAdmin(((Long) request.getSession().getAttribute("idAgent")).intValue() + "")) {%>
-    <a href="agents/gestion.html" target="_self">
+    <a href="agents/gestion.jsp" target="_self">
         <button>Gérer les agents</button>
     </a>
     <%}%>

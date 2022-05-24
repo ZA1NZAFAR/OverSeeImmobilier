@@ -1,14 +1,14 @@
+<%@ page import="models.AgentImmobilier" %>
 <%@ page import="tools.DatabaseConnector" %>
-<%@ page import="models.Client" %>
-<%@ page import="models.Personne" %>
 <!--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 -->
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Gestion des clients</title>
+    <title>Gestion des agents</title>
     <link rel="stylesheet" href="../css/style.css">
 
     <script>
@@ -37,24 +37,25 @@
 
 </head>
 <body>
+<!--
 <header>
-    <jsp:include page="../header.html"/>
+   <jsp:include page="../header.jsp"/>
 </header>
-
+-->
 <div style="text-align: center;">
-    <h1> Liste des clients</h1>
+    <h1> Liste des agents</h1>
 </div>
-<a href="ajout.jsp" target="_self">
-    <button>Ajouter un client</button>
+<a href="ajout.html" target="_self">
+    <button>Ajouter un agent</button>
 </a>
 <div id="droite">
     <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
-        <input type="hidden" id="propertyToEdit" name="clientId" value="">
+        <input type="hidden" id="propertyToEdit" name="idAgent" value="">
         <input type="hidden" name="action" value="edit">
         <input type="submit" name="btn_update" id="btn_update" value="Modifier">
     </form>
     <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
-        <input type="hidden" id="propertyToDelete" name="clientId" value="">
+        <input type="hidden" id="propertyToDelete" name="idAgent" value="">
         <input type="hidden" name="action" value="delete">
         <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">
     </form>
@@ -69,20 +70,18 @@
         <th>Identifiant</th>
         <th>Nom</th>
         <th>Prénom</th>
-        <th>Date de naissance</th>
         <th>Adresse</th>
         <th>Code postal</th>
         <th>Ville</th>
-        <th>Telephone</th>
-        <th>Email</th>
-        <th>Nombre d'achat</th>
-        <th>Nombre de location</th>
+        <th>Date d'embauche</th>
+        <th>Salaire</th>
+        <th>Administrateur</th>
     </tr>
     </thead>
     <tbody>
     <%
-        for (Client c : DatabaseConnector.getAllClients()) {
-            out.print(c.toHTML());
+        for (AgentImmobilier pr : DatabaseConnector.getAllAgentImmobiliers()) {
+            out.print(pr.toHTML());
         }
     %>
     </tbody>

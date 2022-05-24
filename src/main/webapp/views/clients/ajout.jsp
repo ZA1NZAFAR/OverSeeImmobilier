@@ -8,6 +8,34 @@
     <meta charset="utf-8">
     <title>Gestion des clients</title>
     <link rel="stylesheet" href="../css/style.css">
+
+    <script>
+        function showAgentInfo() {
+            if (document.getElementById("estAgent").checked) {
+                document.getElementById("estAdmin").style.display = "block";
+                document.getElementById("mdp").style.display = "block";
+                document.getElementById("dateEmb").style.display = "block";
+                document.getElementById("salaire").style.display = "block";
+
+                document.getElementById("lbl_estAdmin").style.display = "block";
+                document.getElementById("lbl_mdp").style.display = "block";
+                document.getElementById("lbl_dateEmb").style.display = "block";
+                document.getElementById("lbl_salaire").style.display = "block";
+            } else {
+                document.getElementById("estAdmin").style.display = "none";
+                document.getElementById("mdp").style.display = "none";
+                document.getElementById("dateEmb").style.display = "none";
+                document.getElementById("salaire").style.display = "none";
+
+                document.getElementById("lbl_estAdmin").style.display = "none";
+                document.getElementById("lbl_mdp").style.display = "none";
+                document.getElementById("lbl_dateEmb").style.display = "none";
+                document.getElementById("lbl_salaire").style.display = "none";
+            }
+
+        }
+    </script>
+
 </head>
 <body>
 
@@ -44,11 +72,32 @@
             <label id="lbl_tel">Telephone</label>
             <input type="text" id="tf_tel" name="tf_tel">
 
+            <label id="lbl_email">Email</label>
+            <input type="text" id="tf_email" name="tf_email" value="">
+
             <label for="estProp"> Est Proprietaire</label><input type="checkbox" id="estProp" name="estProp" value="estProp">
 
             <%if (DatabaseConnector.isAdmin(((Long) request.getSession().getAttribute("idAgent")).intValue() + "")) {%>
-            <label for="estAgent"> Est Agent</label><input type="checkbox" id="estAgent" name="estAgent" value="">
+            <label for="estAgent"> Est Agent</label><input type="checkbox" id="estAgent" name="estAgent" onclick="showAgentInfo();" value="">
             <%}%>
+
+            <br/>
+            <br/>
+
+            <label style="display: none" id="lbl_estAdmin"> Est Admin</label>
+            <input style="display: none" type="checkbox" id="estAdmin" name="estAdmin" >
+
+            <label style="display: none" id="lbl_mdp"> Mot de passe</label>
+            <input style="display: none" type="password" id="mdp" name="mdp" >
+
+            <label style="display: none" id="lbl_dateEmb">Date de naissance</label>
+            <input style="display: none" type="date" id="dateEmb" name="dateEmb">
+
+            <label style="display: none" id="lbl_salaire">Salaire</label>
+            <input style="display: none" type="text" id="salaire" name="salaire">
+
+
+
 
             <input type="hidden" name="action" value="add">
 

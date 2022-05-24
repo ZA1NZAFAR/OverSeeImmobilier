@@ -93,4 +93,8 @@ public class Propriete implements SQLable, HTMLable {
                 "<td>" + dateDisponibilite + "</td>" +
                 "</tr>";
     }
+
+    public String getAdressComplet() {
+        return adresse + ", " + codePostal + " " + ville;
+    }
 }

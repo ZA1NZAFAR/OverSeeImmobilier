@@ -4,6 +4,7 @@ package models;
 import interfaces.SQLable;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import tools.DatabaseConnector;
 
 @Getter
 @Setter
@@ -89,5 +90,21 @@ public class AgentImmobilier extends Personne implements SQLable {
     @Override
     public String getSQLSelect() {
         return "SELECT * FROM agent_immobilier WHERE idAgentImmobilier = " + idAgentImmobilier;
+    }
+
+    public String toHTML() {
+        Personne tmp = DatabaseConnector.getPersonneById((int) this.idPersonne);
+        return "<tr>" +
+                "<td><input type=\"checkbox\" name=\"" + idAgentImmobilier + "\" onclick=\"updateCheckBoxes();\"></td>" +
+                "<td>" + idAgentImmobilier + "</td>" +
+                "<td>" + tmp.getNom() + "</td>" +
+                "<td>" + tmp.getPrenom() + "</td>" +
+                "<td>" + tmp.getAdresse() + "</td>" +
+                "<td>" + tmp.getCodePostal() + "</td>" +
+                "<td>" + tmp.getVille() + "</td>" +
+                "<td>" + dateEmbauche + "</td>" +
+                "<td>" + salaire + "</td>" +
+                "<td>" + estAdministrateur + "</td>" +
+                "</tr>";
     }
 }

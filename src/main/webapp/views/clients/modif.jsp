@@ -1,8 +1,5 @@
 <%@ page import="tools.DatabaseConnector" %>
-<%@ page import="models.Propriete" %>
-<%@ page import="models.Client" %>
-<%@ page import="models.Personne" %>
-<%@ page import="models.Proprietaire" %>
+<%@ page import="models.*" %>
 <!--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 -->
@@ -28,21 +25,27 @@
 <div id="cadre">
     <div id="formulaire">
 
-        <% Client client = DatabaseConnector.getClientById(Integer.parseInt(request.getParameter("clientId")));%>
-        <% Personne person = DatabaseConnector.getPersonneById((int) client.getIdPersonne());%>
-        <% Proprietaire prop = DatabaseConnector.getProprietaireByPersonneId((int) client.getIdPersonne());%>
+        <% Personne person = DatabaseConnector.getPersonneById(Integer.parseInt(request.getParameter("personId")));%>
+        <% Client client = DatabaseConnector.getClientByPersonneId((int) person.getIdPersonne());%>
+        <% Proprietaire prop = DatabaseConnector.getProprietaireByPersonneId((int) person.getIdPersonne());%>
+        <% AgentImmobilier agent = DatabaseConnector.getAgentImmobilierByPersonneId((int) person.getIdPersonne());%>
 
         <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
 
-            <label id="lbl_idPerso">Référence du bien</label>
+            <label id="lbl_idPerso">Id Personne</label>
             <input type="text" id="idPersonne" name="idPersonne" value="<%=person.getIdPersonne()%>" readonly="readonly"/>
 
-            <label id="lbl_idClient">Référence du bien</label>
+            <label id="lbl_idClient">Id Client</label>
             <input type="text" id="idClient" name="idClient" value="<%=client.getIdClient()%>" readonly="readonly"/>
 
             <%if (prop != null) {%>
-            <label id="lbl_idProp">Référence du bien</label>
+            <label id="lbl_idProp">Id Proprietaire</label>
             <input type="text" id="idProp" name="idProp" value="<%=prop.getIdProprietaire()%>" readonly="readonly"/>
+            <%}%>
+
+            <%if (agent != null) {%>
+            <label id="lbl_idProp">Id Agent Immobilier</label>
+            <input type="text" id="idProp" name="idProp" value="<%=agent.getIdAgentImmobilier()%>" readonly="readonly"/>
             <%}%>
 
             <label id="lbl_nom">Nom</label>

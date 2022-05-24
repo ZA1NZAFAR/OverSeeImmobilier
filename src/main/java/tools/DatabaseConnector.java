@@ -10,7 +10,6 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -115,6 +114,100 @@ public class DatabaseConnector {
             throw new RuntimeException("Could not get all proprietes", e);
         }
         return prop;
+    }
+
+    public static Client getClientByPersonneId(int clientId) {
+        Client client = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Client> h = new BeanHandler<>(Client.class);
+            client = run.query("SELECT * FROM Client WHERE idPersonne = " + clientId, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all clients", e);
+        }
+        return client;
+    }
+
+    public static List<AgentImmobilier> getAllAgentImmobiliers() {
+        List<AgentImmobilier> agentImmobiliers = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<AgentImmobilier>> h = new BeanListHandler<>(AgentImmobilier.class);
+            agentImmobiliers = run.query("SELECT * FROM AgentImmobilier", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all agentImmobiliers", e);
+        }
+        return agentImmobiliers;
+    }
+
+    public static AgentImmobilier getAgentImmobilierByPersonneId(int idPersonne) {
+        AgentImmobilier agentImmobilier = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<AgentImmobilier> h = new BeanHandler<>(AgentImmobilier.class);
+            agentImmobilier = run.query("SELECT * FROM AgentImmobilier WHERE idPersonne = " + idPersonne, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all agentImmobiliers", e);
+        }
+        return agentImmobilier;
+    }
+
+    public static List<Visite> getAllVisites() {
+        List<Visite> visites = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<Visite>> h = new BeanListHandler<>(Visite.class);
+            visites = run.query("SELECT * FROM Visite", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all visites", e);
+        }
+        return visites;
+    }
+
+    public static Visite getVisitUsingDTO(IDsDTO dto) {
+        Visite visite = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Visite> h = new BeanHandler<>(Visite.class);
+            visite = run.query("SELECT * FROM Visite " +
+                            "WHERE numeroReference = " + dto.getNumeroReferenceBien() +
+                            " AND idClient = " + dto.getIdClient() +
+                            " AND idProprietaire = " + dto.getIdProprietaire() +
+                            " AND idAgentImmobilier = " + dto.getIdAgentImmobilier()
+                    , h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all visites", e);
+        }
+        return visite;
+    }
+
+    public static List<Transaction> getAllTransactions() {
+        List<Transaction> transactions = new ArrayList<>();
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<Transaction>> h = new BeanListHandler<>(Transaction.class);
+            transactions = run.query("SELECT * FROM Transaction", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all transactions", e);
+        }
+        return transactions;
+    }
+
+    public static Transaction getTransactionUsing(IDsDTO v) {
+        Transaction transaction = null;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Transaction> h = new BeanHandler<>(Transaction.class);
+            transaction = run.query("SELECT * FROM Transaction " +
+                            "WHERE numeroReference = " + v.getNumeroReferenceBien() +
+                            " AND idClient = " + v.getIdClient() +
+                            " AND idProprietaire = " + v.getIdProprietaire() +
+                            " AND idAgentImmobilier = " + v.getIdAgentImmobilier()
+                    , h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all transactions", e);
+        }
+        return transaction;
     }
 
     public AgentImmobilier login(String username, String password) throws SQLException {

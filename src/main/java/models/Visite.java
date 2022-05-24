@@ -4,6 +4,7 @@ package models;
 import interfaces.SQLable;
 import lombok.Getter;
 import lombok.Setter;
+import tools.DatabaseConnector;
 
 @Getter
 @Setter
@@ -102,5 +103,17 @@ public class Visite implements SQLable {
     @Override
     public String getSQLSelect() {
         return "SELECT * FROM visite WHERE numeroReference = " + numeroReference + ";";
+    }
+
+    public String toHTML() {
+        return "<tr>" +
+                "<td><input type=\"checkbox\" name=\"" + numeroReference + "~" + idAgentImmobilier + "~" + idProprietaire + "~" + idClient + "\" onclick=\"updateCheckBoxes();\"></td>" +
+                "<td>" + dateVisite + "</td>" +
+                "<td>" + heureVisite + "</td>" +
+                "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getAdressComplet() + "</td>" +
+                "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById((int) idAgentImmobilier).getIdPersonne()).getNomComplet() + "</td>" +
+                "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getClientById((int) idClient).getIdPersonne()).getNomComplet() + "</td>" +
+                "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById((int) idProprietaire).getIdPersonne()).getNomComplet() + "</td>" +
+                "</tr>";
     }
 }
