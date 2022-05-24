@@ -38,9 +38,9 @@
 </head>
 <body>
 <header>
-    <jsp:include page="../header.html"/>
+    <jsp:include page="../header.jsp"/>
 </header>
-
+<article>
 <div style="text-align: center;">
     <h1> Liste des clients</h1>
 </div>
@@ -88,7 +88,7 @@
     </tbody>
 
 </table>
-
+</article>
 
 </body>
 </html>

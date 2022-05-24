@@ -38,11 +38,12 @@
 <header>
     <jsp:include page="../header.jsp"/>
 </header>
+<article>
 <div style="text-align: center;">
     <h1> Liste des transactions</h1>
 </div>
 <a href="ajout.jsp" target="_self">
-    <button>Ajouter un bien</button>
+    <button>Ajouter une transition</button>
 </a>
 <div id="droite">
     <form action="/OverSeeImmobilier/ManageTransactionServlet" method="post">
@@ -86,6 +87,6 @@
 
 </table>
 
-
+</article>
 </body>
 </html>

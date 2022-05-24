@@ -31,7 +31,7 @@
             <input type="date" id="dateVisite" name="dateVisite">
 
 
-            <label id="lbl_heure">Date de la visite</label>
+            <label id="lbl_heure">Heure de la visite</label>
             <input type="time" id="heureVisite" name="heureVisite">
 
             <label id="lbl_ref">Réference du bien</label>

@@ -9,15 +9,19 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<a href="../index.jsp"><img src="images/logOut.png"/> </a>
+<div style="width: 100%; height: 10vw;">
+<a href="../index.jsp"><img src="images/logOut.png" style="width: 3vw; height: 3vw; position: relative; left: 95%;" /> </a>
+</div>
 
-<div style="text-align: center;">
-    <div style="padding:20vh;">
-        <img src="images/logo.png"/>
-    </div>
+<div style="text-align: center;" >
+
+        <img src="images/logo.png" style="position: relative; right: 0vw;"/>
+
     <p> Bonjour
         <%=DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById(((Long) request.getSession().getAttribute("idAgent")).intValue()).getIdPersonne()).getNomComplet()%>
-        , que voulez-vous faire ? </p>
+        , que voulez-vous faire ?
+    </p>
+
     <a href="biens/gestion.jsp" target="_self">
         <button>Gérer les biens</button>
     </a>

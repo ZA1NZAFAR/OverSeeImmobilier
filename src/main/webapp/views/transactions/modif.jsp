@@ -13,7 +13,9 @@
 <header>
     <jsp:include page="../header.jsp"/>
 </header>
-<h1> Modification d'une transaction</h1>
+<div style="text-align: center;">
+    <h1> Modification d'une transaction</h1>
+</div>
 <div id="cadre">
     <div id="formulaire">
 
@@ -25,7 +27,7 @@
             <label id="lbl_dispo">Date de la vente</label>
             <input type="date" id="date" name="dateVente" value="<%=tr.getDatevente()%>">
 
-            <label id="lbl_ref">Référencce du bien</label>
+            <label id="lbl_ref">Référence du bien</label>
             <select name="list_ref" id="list_ref">
                 <option value="<%=v.getNumeroReferenceBien()%>"><%=v.getNumeroReferenceBien() + " - " + DatabaseConnector.getProprieteById((int) v.getNumeroReferenceBien()).getAdressComplet()%>
                 </option>

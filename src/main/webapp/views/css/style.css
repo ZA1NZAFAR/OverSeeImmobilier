@@ -1,7 +1,10 @@
 body{
+
     background-size: 100% 100%;
-    height: 100vw;
-    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+
 }
 table{
     border: 3px solid white; /* Bordure du tableau double et bleue */
@@ -32,6 +35,10 @@ button,input[type=submit]{
     border-radius: 0.6vw;
     margin: 1.2vw;
     padding: 1vw;
+
+}
+a{
+    color: white;
 }
 
 button:hover,input[type=submit]:hover{
@@ -99,7 +106,7 @@ button:hover,input[type=submit]:hover{
 h1{
     font-size: 3vw;
     position: relative;
-    top: 7vw;
+    top: 10vw;
     text-decoration: underline;
     text-underline-offset: 0.5vw;
     font-weight: 1;
@@ -113,9 +120,10 @@ a img{
 
 ul {
     position:fixed;
-    top: 0vw;
-    left: 8%;
+
+    left: 6vw;
     list-style-type: none;
+
 
 }
 ul li{
@@ -128,8 +136,8 @@ ul li{
 
 ul img {
     position: relative;
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
 }
 li:hover{
     /* L'image est grossie de 25% */
@@ -146,12 +154,13 @@ li:hover{
 .img_gauche{
     pointer-events: none;
     position: relative;
-
+    right: 10vw;
 
 }
 
 .img_droite{
     position: relative;
+    left: 10vw;
 
 
 }
@@ -165,4 +174,18 @@ li p {
 
 }
 
+header{
+    position: fixed;
+    top:-2vw;
+    width: 100%;
+    height: 10vw;
+    background-color: white;
+    z-index: 100
 
+}
+article{
+    width: 100%;
+    position: relative;
+    top: 5vw;
+
+}

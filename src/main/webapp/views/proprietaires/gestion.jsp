@@ -38,6 +38,7 @@
 <header>
    <jsp:include page="../header.jsp"/>
 </header>
+<article>
 		<div style="text-align: center;">
             <h1> Liste des proprietaires</h1>
         </div>
@@ -83,6 +84,6 @@
 
             </table>
 
-
+</article>
     </body>
 </html>

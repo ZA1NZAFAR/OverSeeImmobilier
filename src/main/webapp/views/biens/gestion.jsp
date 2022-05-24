@@ -38,12 +38,12 @@
 </head>
 <body>
 <header>
-    <jsp:include page="../header.html"/>
+    <jsp:include page="../header.jsp"/>
 </header>
-
-<center>
+<article>
+<div style="text-align: center;">
     <h1> Liste des biens immobilier</h1>
-</center>
+</div>
 <div class="btn">
     <a href="ajout.jsp" target="_self">
         <button>Ajouter un bien</button>
@@ -86,6 +86,6 @@
     }%>
     </tbody>
 </table>
-
+</article>
 </body>
 </html>
