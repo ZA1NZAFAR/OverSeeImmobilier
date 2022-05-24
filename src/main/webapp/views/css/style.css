@@ -1,5 +1,7 @@
 body{
     background-size: 100% 100%;
+    height: 100vw;
+    width: 100vw;
 }
 table{
     border: 3px solid white; /* Bordure du tableau double et bleue */
@@ -112,7 +114,7 @@ a img{
 ul {
     position:fixed;
     top: 0vw;
-    left: 15%;
+    left: 8%;
     list-style-type: none;
 
 }
@@ -121,12 +123,13 @@ ul li{
     margin: 1.2vw;
     padding: 1.2vw;
 
+
 }
 
 ul img {
     position: relative;
     width: 3vw;
-    height: 4vw;
+    height: 3vw;
 }
 li:hover{
     /* L'image est grossie de 25% */
@@ -140,6 +143,26 @@ li:hover{
     position: relative;
 }
 
+.img_gauche{
+    pointer-events: none;
+    position: relative;
 
+
+}
+
+.img_droite{
+    position: relative;
+
+
+}
+li p {
+    text-align: center;
+    font-size: 1.2vw;
+    position: relative;
+    top: -12px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
 
 
