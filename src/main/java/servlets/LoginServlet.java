@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         DatabaseConnector databaseConnector = new DatabaseConnector();
         AgentImmobilier agentImmobilier;
         if (StringUtils.isStrictlyNumeric(username) && (agentImmobilier = databaseConnector.login(username, password)) != null) {
-            req.getSession().setAttribute("idAgent", agentImmobilier.getIdAgentImmobilier());
+            req.getSession(true).setAttribute("idAgent", agentImmobilier.getIdAgentImmobilier());
             resp.sendRedirect("views/accueil.jsp?idAgent=" + agentImmobilier.getIdAgentImmobilier());
         } else {
             HtmlDisplayer.processRequest(req, resp, "Unable to login with the given credentials");
