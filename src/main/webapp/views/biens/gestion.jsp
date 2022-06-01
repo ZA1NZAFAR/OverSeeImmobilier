@@ -77,6 +77,7 @@
         <th>Adresse</th>
         <th>Code postal</th>
         <th>Ville</th>
+        <th>Achat/Vente</th>
         <th>Disponibilité</th>
     </tr>
     </thead>

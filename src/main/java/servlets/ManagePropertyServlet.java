@@ -4,7 +4,6 @@ import lombok.SneakyThrows;
 import models.Log;
 import tools.DatabaseConnector;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +38,8 @@ public class ManagePropertyServlet extends HttpServlet {
                         req.getParameter("stepper_garage") + ", prixInitial = " +
                         req.getParameter("stepper_prix") + ", dateDisponibilite = '" +
                         req.getParameter("date") + "', idProprietaire = " +
-                        req.getParameter("list_prop") + " WHERE numeroReference = " +
+                        req.getParameter("list_prop") + ", locationOuVente = '" +
+                        req.getParameter("tf_locVent") + "' WHERE numeroReference = " +
                         req.getParameter("refBien") + ";");
                 DatabaseConnector.log(Log.builder().idAgent(0).action("Modification").information("Propriété " + propertyId).build());
                 resp.sendRedirect("views/biens/gestion.jsp");
@@ -56,6 +56,7 @@ public class ManagePropertyServlet extends HttpServlet {
                         "etat_d_habitation, " +
                         "garage, " +
                         "prixInitial, " +
+                        "locationOuVente, " +
                         "dateDisponibilite, " +
                         "idProprietaire) VALUES ('" +
                         (DatabaseConnector.getLastId("Propriete", "numeroReference") + 1) + "', '" +
@@ -68,6 +69,7 @@ public class ManagePropertyServlet extends HttpServlet {
                         req.getParameter("list_type") + "', " +
                         req.getParameter("stepper_garage") + ", " +
                         req.getParameter("stepper_prix") + ", '" +
+                        req.getParameter("tf_locVent") + "', '" +
                         req.getParameter("date") + "', " +
                         req.getParameter("list_prop") + ");");
                 DatabaseConnector.log(Log.builder().idAgent(0).action("Ajout").information("Propriété " + propertyId).build());

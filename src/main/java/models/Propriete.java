@@ -24,6 +24,7 @@ public class Propriete implements SQLable, HTMLable {
     private String etat_d_habitation;
     private long garage;
     private double prixInitial;
+    private String locationOuVente;
     private Date dateDisponibilite;
     private long idProprietaire;
 
@@ -90,6 +91,7 @@ public class Propriete implements SQLable, HTMLable {
                 "<td>" + adresse + "</td>" +
                 "<td>" + codePostal + "</td>" +
                 "<td>" + ville + "</td>" +
+                "<td>" + locationOuVente + "</td>" +
                 "<td>" + dateDisponibilite + "</td>" +
                 "</tr>";
     }

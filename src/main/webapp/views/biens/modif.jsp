@@ -83,6 +83,9 @@
             <label id="lbl_ville">Ville</label>
             <input type="text" id="tf_ville" name="tf_ville" value="<%=p.getVille()%>">
 
+            <label id="lbl_locVent">Location Ou Vente</label>
+            <input type="text" id="tf_locVent" name="tf_locVent" value="<%=p.getLocationOuVente()%>">
+
             <label id="lbl_dispo">Disponibilité</label>
             <input type="date" id="date" name="date" value="<%=p.getDateDisponibilite()%>">
 

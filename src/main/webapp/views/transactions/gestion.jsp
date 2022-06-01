@@ -63,7 +63,7 @@
     <thead>
     <tr>
         <th></th>
-        <th>Date de la vente</th>
+        <th>Date Transaction</th>
         <th>Référence du bien</th>
         <th>Proprietaire</th>
         <th>Client</th>

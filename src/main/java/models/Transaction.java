@@ -65,12 +65,12 @@ public class Transaction implements SQLable {
                 "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getAdressComplet() + "</td>" +
                 "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getProprietaireById((int) idProprietaire).getIdPersonne()).getNomComplet() + "</td>" +
                 "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getClientById((int) idClient).getIdPersonne()).getNomComplet() + "</td>" +
-                "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getType() + "</td>" +
+                "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getLocationOuVente() + "</td>" +
                 "<td>" + DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById((int) idAgentImmobilier).getIdPersonne()).getNomComplet() + "</td>" +
                 "<td>" + DatabaseConnector.getProprieteById((int) numeroReference).getPrixInitial() + "</td>" +
                 "<td>" + prixVente + "</td>" +
                 "<td>" + commission + "</td>" +
-                "<td>" + ((prixVente + ((prixVente/100) *3)) + 1000) + "</td>" +
+                "<td>" + ((prixVente + ((prixVente / 100) * 3)) + 1000) + "</td>" +
                 "</tr>";
     }
 }

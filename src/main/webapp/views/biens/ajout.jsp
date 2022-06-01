@@ -79,6 +79,9 @@
             <input type="text" id="tf_ville" name="tf_ville">
             <br/>
 
+            <label id="lbl_locVent">Location Ou Vente</label>
+            <input type="text" id="tf_locVent" name="tf_locVent">
+
             <label id="lbl_dispo">Disponibilité</label>
             <input type="date" id="date" name="date">
             <br/>

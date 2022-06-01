@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseConnector {
-    private static Connection dbConnection = ConnectionManager.getConnection();
+    private static final Connection dbConnection = ConnectionManager.getConnection();
 
 
     public static ResultSet executeQuery(String query) throws SQLException {
