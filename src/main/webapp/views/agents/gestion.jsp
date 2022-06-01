@@ -45,7 +45,7 @@
 <div style="text-align: center;">
     <h1> Liste des agents</h1>
 </div>
-<a href="ajout.html" target="_self">
+<a href="../clients/ajout.jsp" target="_self">
     <button>Ajouter un agent</button>
 </a>
 <div id="droite">
