@@ -27,11 +27,7 @@ public class ConnectionManager {
         }
         return connection;
     }
-    public void closeConnection(Connection connection) throws SQLException {
-        if (connection != null) {
-            connection.close();
-        }
-    }
+
 
     public static DataSource getDataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();

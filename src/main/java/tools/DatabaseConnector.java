@@ -14,11 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseConnector {
-    private static Connection dbConnection;
+    private static Connection dbConnection = ConnectionManager.getConnection();
 
-    public DatabaseConnector() {
-        dbConnection = ConnectionManager.getConnection();
-    }
 
     public static ResultSet executeQuery(String query) throws SQLException {
         return dbConnection.createStatement().executeQuery(query);
@@ -29,20 +26,11 @@ public class DatabaseConnector {
     }
 
     public static void executeDelete(String query) throws SQLException {
-        // Disable foreign keys check
-//        Statement stmt = dbConnection.createStatement();
-//        stmt.execute("SET FOREIGN_KEY_CHECKS=0");
-//        stmt.close();
         dbConnection.createStatement().executeUpdate(query);
-//        stmt = dbConnection.createStatement();
-//        stmt.execute("SET FOREIGN_KEY_CHECKS=1");
-//        stmt.close();
     }
 
 
-    public static void close() throws SQLException {
-        dbConnection.close();
-    }
+
 
     public static boolean isAdmin(String idAgent) {
         try {
