@@ -11,6 +11,8 @@
 <%
     if (request.getSession() == null)
         response.sendRedirect("index.jsp");
+    if (request.getSession().getAttribute("idAgent") == null)
+        response.sendRedirect("index.jsp");
 %>
 </h1>
 <div>
