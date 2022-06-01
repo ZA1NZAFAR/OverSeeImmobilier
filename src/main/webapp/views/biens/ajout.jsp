@@ -1,9 +1,7 @@
 <%@ page import="tools.DatabaseConnector" %>
 <%@ page import="java.util.Objects" %>
 <%@ page import="models.Proprietaire" %>
-<!--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
--->
 
 <!doctype html>
 <html>

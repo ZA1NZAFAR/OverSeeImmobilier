@@ -1,8 +1,7 @@
 <%@ page import="tools.DatabaseConnector" %>
 <%@ page import="models.Visite" %>
-<!--
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
--->
 
 <!doctype html>
 <html>
