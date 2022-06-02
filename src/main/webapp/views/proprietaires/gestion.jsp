@@ -22,12 +22,16 @@
                 var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
                 for (var checkbox of checkboxes) {
                     checkbox.disabled = true;
+                    document.getElementById("btn_update").disabled = false;
+                    document.getElementById("btn_delete").disabled = false;
                 }
 
                 if (document.querySelectorAll('input[type="checkbox"]:disabled').length === document.querySelectorAll('input[type="checkbox"]').length) {
                     var checkboxes = document.querySelectorAll('input[type="checkbox"]:disabled');
                     for (var checkbox of checkboxes) {
                         checkbox.disabled = false;
+                        document.getElementById("btn_update").disabled = true;
+                        document.getElementById("btn_delete").disabled = true;
                     }
                 }
             }
@@ -35,33 +39,35 @@
 
     </head>
     <body>
-<header>
-   <jsp:include page="../header.jsp"/>
-</header>
-		<div style="text-align: center;">
-            <h1> Liste des proprietaires</h1>
-        </div>
-		<a href="../clients/ajout.jsp" target="_self"><button>Ajouter un proprietaires</button></a>
-		<div id="droite">
-            <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
-                <input type="hidden" id="propertyToEdit" name="propId" value="">
-                <input type="hidden" name="action" value="edit">
-                <input type="submit" name="btn_update" id="btn_update" value="Modifier">
-            </form>
-            <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
-                <input type="hidden" id="propertyToDelete" name="propId" value="">
-                <input type="hidden" name="action" value="delete">
-                <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">
-            </form>
-		</div>
+    <header>
+        <jsp:include page="../header.jsp"/>
+    </header>
+    <div style="text-align: center;">
+        <h1> Liste des proprietaires</h1>
+    </div>
+    <a href="../clients/ajout.jsp" target="_self">
+        <button>Ajouter un proprietaires</button>
+    </a>
+    <div id="droite">
+        <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
+            <input type="hidden" id="propertyToEdit" name="propId" value="">
+            <input type="hidden" name="action" value="edit">
+            <input type="submit" name="btn_update" id="btn_update" value="Modifier" disabled="true">
+        </form>
+        <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
+            <input type="hidden" id="propertyToDelete" name="propId" value="">
+            <input type="hidden" name="action" value="delete">
+            <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer" disabled="true">
+        </form>
+    </div>
 
 
-            <table>
+    <table>
 
-                 <thead>
-					 <tr>
-					    <th></th>
-						<th>Identifiant</th>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Identifiant</th>
 						<th>Nom </th>
 						<th>Prénom </th>
 						<th>Date de naissance </th>

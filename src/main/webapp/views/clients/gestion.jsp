@@ -22,12 +22,16 @@
             var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
             for (var checkbox of checkboxes) {
                 checkbox.disabled = true;
+                document.getElementById("btn_update").disabled = false;
+                document.getElementById("btn_delete").disabled = false;
             }
 
             if (document.querySelectorAll('input[type="checkbox"]:disabled').length === document.querySelectorAll('input[type="checkbox"]').length) {
                 var checkboxes = document.querySelectorAll('input[type="checkbox"]:disabled');
                 for (var checkbox of checkboxes) {
                     checkbox.disabled = false;
+                    document.getElementById("btn_update").disabled = true;
+                    document.getElementById("btn_delete").disabled = true;
                 }
             }
         }
@@ -49,12 +53,12 @@
     <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
         <input type="hidden" id="propertyToEdit" name="clientId" value="">
         <input type="hidden" name="action" value="edit">
-        <input type="submit" name="btn_update" id="btn_update" value="Modifier">
+        <input type="submit" name="btn_update" id="btn_update" value="Modifier" disabled="true">
     </form>
     <form action="/OverSeeImmobilier/ManagePersonServlet" method="post">
         <input type="hidden" id="propertyToDelete" name="clientId" value="">
         <input type="hidden" name="action" value="delete">
-        <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer">
+        <input type="submit" name="btn_delete" id="btn_delete" value="Supprimer" disabled="true">
     </form>
 </div>
 
