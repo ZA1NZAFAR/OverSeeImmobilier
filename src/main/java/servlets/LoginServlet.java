@@ -3,6 +3,7 @@ package servlets;
 import com.mysql.cj.util.StringUtils;
 import lombok.SneakyThrows;
 import models.AgentImmobilier;
+import models.Log;
 import tools.DatabaseConnector;
 import tools.HtmlDisplayer;
 
@@ -24,6 +25,7 @@ public class LoginServlet extends HttpServlet {
         DatabaseConnector databaseConnector = new DatabaseConnector();
         AgentImmobilier agentImmobilier;
         if (StringUtils.isStrictlyNumeric(username) && (agentImmobilier = databaseConnector.login(username, password)) != null) {
+            DatabaseConnector.log(Log.builder().idAgent(agentImmobilier.getIdAgentImmobilier()).action("Connexion").information("Connexion agent " + agentImmobilier.getIdAgentImmobilier()).build());
             req.getSession(true).setAttribute("idAgent", agentImmobilier.getIdAgentImmobilier());
             resp.sendRedirect("views/accueil.jsp?idAgent=" + agentImmobilier.getIdAgentImmobilier());
         } else {

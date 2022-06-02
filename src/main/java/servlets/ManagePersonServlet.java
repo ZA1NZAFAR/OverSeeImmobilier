@@ -40,7 +40,7 @@ public class ManagePersonServlet extends HttpServlet {
                 break;
             case "delete":
                 DatabaseConnector.executeDelete("DELETE FROM Personne WHERE idPersonne = " + personId);
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Suppression").information("Personne " + personId).build());
+                DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Suppression").information("Personne " + personId).build());
                 resp.sendRedirect("views/clients/gestion.jsp");
                 break;
             case "update":
@@ -54,7 +54,7 @@ public class ManagePersonServlet extends HttpServlet {
                         "numeroTel = '" + req.getParameter("tf_tel") + "', " +
                         "email = '" + req.getParameter("email") + "' " +
                         "WHERE idPersonne = " + personId);
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Update").information("Personne " + personId).build());
+                DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Update").information("Personne " + personId).build());
                 resp.sendRedirect("views/clients/gestion.jsp");
                 break;
             case "add":
@@ -79,7 +79,7 @@ public class ManagePersonServlet extends HttpServlet {
                         req.getParameter("tf_cp") + "','" +
                         req.getParameter("dateNaissance") + "')");
 
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Ajout").information("Client " + (DatabaseConnector.getLastId("Personne", "idPersonne"))).build());
+                DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Ajout").information("Client " + (DatabaseConnector.getLastId("Personne", "idPersonne"))).build());
 
                 DatabaseConnector.executeUpdate("INSERT INTO Client (" +
                         "idClient, " +
@@ -88,7 +88,7 @@ public class ManagePersonServlet extends HttpServlet {
                         (DatabaseConnector.getLastId("Client", "idClient") + 1) + ", " +
                         (DatabaseConnector.getLastId("Personne", "idPersonne")) + ")");
 
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Ajout").information("Client " + (DatabaseConnector.getLastId("Client", "idClient"))).build());
+                DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Ajout").information("Client " + (DatabaseConnector.getLastId("Client", "idClient"))).build());
 
 
                 if (req.getParameter("estProp") != null) {
@@ -100,7 +100,7 @@ public class ManagePersonServlet extends HttpServlet {
                             (DatabaseConnector.getLastId("Proprietaire", "idProprietaire") + 1) + ", " +
                             (DatabaseConnector.getLastId("Personne", "idPersonne")) + ", " +
                             0 + ")");
-                    DatabaseConnector.log(Log.builder().idAgent(0).action("Ajout").information("Proprietaire " + (DatabaseConnector.getLastId("Proprietaire", "idProprietaire"))).build());
+                    DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Ajout").information("Proprietaire " + (DatabaseConnector.getLastId("Proprietaire", "idProprietaire"))).build());
 
                 }
 
@@ -119,7 +119,7 @@ public class ManagePersonServlet extends HttpServlet {
                             ((req.getParameter("estAdmin") != null) ? "oui" : "non") + "','" +
                             req.getParameter("salaire") + "','" +
                             req.getParameter("dateEmb") + "')");
-                    DatabaseConnector.log(Log.builder().idAgent(0).action("Ajout").information("Agent " + (DatabaseConnector.getLastId("AgentImmobilier", "idAgentImmobilier"))).build());
+                    DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Ajout").information("Agent " + (DatabaseConnector.getLastId("AgentImmobilier", "idAgentImmobilier"))).build());
                 }
 
                 resp.sendRedirect("views/clients/gestion.jsp");

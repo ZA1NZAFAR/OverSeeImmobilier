@@ -23,7 +23,7 @@ public class ManagePropertyServlet extends HttpServlet {
                 break;
             case "delete":
                 DatabaseConnector.executeDelete("DELETE FROM Propriete WHERE numeroReference = " + propertyId);
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Suppression").information("Propriété " + propertyId).build());
+                DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Suppression").information("Propriété " + propertyId).build());
                 resp.sendRedirect("views/biens/gestion.jsp");
                 break;
             case "update":
@@ -41,7 +41,7 @@ public class ManagePropertyServlet extends HttpServlet {
                         req.getParameter("list_prop") + ", locationOuVente = '" +
                         req.getParameter("tf_locVent") + "' WHERE numeroReference = " +
                         req.getParameter("refBien") + ";");
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Modification").information("Propriété " + propertyId).build());
+                DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Modification").information("Propriété " + propertyId).build());
                 resp.sendRedirect("views/biens/gestion.jsp");
                 break;
             case "add":
@@ -72,7 +72,7 @@ public class ManagePropertyServlet extends HttpServlet {
                         req.getParameter("tf_locVent") + "', '" +
                         req.getParameter("date") + "', " +
                         req.getParameter("list_prop") + ");");
-                DatabaseConnector.log(Log.builder().idAgent(0).action("Ajout").information("Propriété " + propertyId).build());
+                DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Ajout").information("Propriété " + propertyId).build());
                 resp.sendRedirect("views/biens/gestion.jsp");
                 break;
         }
