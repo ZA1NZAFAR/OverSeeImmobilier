@@ -4,10 +4,7 @@ package models;
 import interfaces.SQLable;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 import tools.DatabaseConnector;
-
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -67,8 +64,7 @@ public class Client extends Personne implements SQLable {
                 "<td>" + tmp.getVille() + "</td>" +
                 "<td>" + tmp.getNumeroTel() + "</td>" +
                 "<td>" + tmp.getEmail() + "</td>" +
-                "<td>" + "TODO" + "</td>" +
-                "<td>" + "TODO" + "</td>" +
+                "<td>" + DatabaseConnector.NbBuysClient(idClient) + "</td>" +
                 "</tr>";
     }
 }

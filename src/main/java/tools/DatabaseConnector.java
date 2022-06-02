@@ -198,6 +198,30 @@ public class DatabaseConnector {
         return transaction;
     }
 
+    public static long getNbPropertiesOfAProprietaire(long idProprietaire) {
+        long nbProperties;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Long> h = new ScalarHandler<>();
+            nbProperties = run.query("SELECT COUNT(*) FROM Propriete WHERE idProprietaire = " + idProprietaire, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all transactions", e);
+        }
+        return nbProperties;
+    }
+
+    public static long NbBuysClient(long clientId) {
+        long nbBuys;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<Long> h = new ScalarHandler<>();
+            nbBuys = run.query("SELECT COUNT(*) FROM Transaction WHERE idClient = " + clientId, h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all transactions", e);
+        }
+        return nbBuys;
+    }
+
     public AgentImmobilier login(String username, String password) throws SQLException {
 
         AgentImmobilier personne = null;

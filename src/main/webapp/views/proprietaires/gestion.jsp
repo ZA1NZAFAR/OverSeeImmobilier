@@ -68,21 +68,20 @@
         <tr>
             <th></th>
             <th>Identifiant</th>
-						<th>Nom </th>
-						<th>Prénom </th>
-						<th>Date de naissance </th>
-						<th>Adresse </th>
-						<th>Code postal </th>
-						<th>Ville </th>
-						<th>Telephone </th>
-						<th>Email </th>
-                        <th>Nombre de proprieté mis en vente </th>
-                        <th>Nombre de proprieté mis en location </th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Adresse</th>
+            <th>Code postal</th>
+            <th>Ville</th>
+            <th>Telephone</th>
+            <th>Email</th>
+            <th>Nombre de proprieté possede</th>
 
-				   </tr>
-				 </thead>
-			<tbody>
-            <%for (Proprietaire pr : DatabaseConnector.getAllProprietaires()) {
+        </tr>
+        </thead>
+        <tbody>
+        <%for (Proprietaire pr : DatabaseConnector.getAllProprietaires()) {
                 out.print(pr.toHTML());
             }%>
 			</tbody>

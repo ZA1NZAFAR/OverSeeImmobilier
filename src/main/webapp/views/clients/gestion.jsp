@@ -77,8 +77,7 @@
         <th>Ville</th>
         <th>Telephone</th>
         <th>Email</th>
-        <th>Nombre d'achat</th>
-        <th>Nombre de location</th>
+        <th>Nombre de transactions</th>
     </tr>
     </thead>
     <tbody>

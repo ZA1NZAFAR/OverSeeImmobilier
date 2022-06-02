@@ -52,8 +52,7 @@ public class Proprietaire {
                 "<td>" + tmp.getVille() + "</td>" +
                 "<td>" + tmp.getNumeroTel() + "</td>" +
                 "<td>" + tmp.getEmail() + "</td>" +
-                "<td>" + "TODO" + "</td>" +
-                "<td>" + "TODO" + "</td>" +
+                "<td>" + DatabaseConnector.getNbPropertiesOfAProprietaire(idProprietaire) + "</td>" +
                 "</tr>";
     }
 }
