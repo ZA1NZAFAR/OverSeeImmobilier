@@ -14,7 +14,9 @@
 <header>
     <jsp:include page="../header.jsp"/>
 </header>
-<h1> Modification d'une transaction</h1>
+<div style="text-align: center;">
+    <h1> Modification d'une transaction</h1>
+</div>
 <div id="cadre">
     <div id="formulaire">
 
@@ -70,13 +72,16 @@
             <br/>
 
             <label id="lbl_prixVente">Prix de vente</label>
-            <input type="text" id="tf_prixVente" name="tf_prixVente" value=<%=pr.getPrixInitial()%>>>
+            <input type="text" id="tf_prixVente" name="tf_prixVente" value=<%=tr.getPrixVente()%>>>
+            <br/>
 
-            <label id="lbl_commission">Commision [3% - 5%]</label>
+            <label id="lbl_commission">Commission [3% - 5%]</label>
             <input type="text" id="tf_commision" name="tf_commision" value=<%=tr.getCommission()%>>
+            <br/>
 
             <input type="hidden" name="action" value="update">
             <input type="hidden" name="transactionString" value="<%=v.toString()%>">
+            <br/>
 
             <div style="text-align: center;">
                 <input type="submit" name="btn_submit" id="btn_submit" value="Modifier une transaction">

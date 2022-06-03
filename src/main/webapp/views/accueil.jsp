@@ -32,7 +32,7 @@
                             ((Long) request.getSession().getAttribute("idAgent")).intValue()
                     ).getIdPersonne()).getNomComplet();
         } catch (Exception e) {
-            HtmlDisplayer.processRequest(request, response, "Session expired! Please log in again.");
+            HtmlDisplayer.error(request, response, "Session expired! Please log in again.");
         }
     %>
 

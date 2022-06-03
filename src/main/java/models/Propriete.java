@@ -23,7 +23,7 @@ public class Propriete implements SQLable, HTMLable {
     private double superficie;
     private String etat_d_habitation;
     private long garage;
-    private double prixInitial;
+    private long prixInitial;
     private String locationOuVente;
     private Date dateDisponibilite;
     private long idProprietaire;

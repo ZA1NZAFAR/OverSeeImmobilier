@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             req.getSession(true).setAttribute("idAgent", agentImmobilier.getIdAgentImmobilier());
             resp.sendRedirect("views/accueil.jsp?idAgent=" + agentImmobilier.getIdAgentImmobilier());
         } else {
-            HtmlDisplayer.processRequest(req, resp, "Unable to login with the given credentials");
+            HtmlDisplayer.error(req, resp, "Unable to login with the given credentials");
         }
     }
 

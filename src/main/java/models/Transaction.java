@@ -19,7 +19,7 @@ public class Transaction implements SQLable, HTMLable {
     private long commission;
     private long montantTotalTransaction;
     private String typeTransaction;
-    private double prixVente;
+    private long prixVente;
 
     @Override
     public String getSQLInsert() {

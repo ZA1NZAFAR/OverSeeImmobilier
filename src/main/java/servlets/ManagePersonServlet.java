@@ -31,7 +31,7 @@ public class ManagePersonServlet extends HttpServlet {
         } else if (idAgent!= null){
             personId = DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById(Integer.parseInt(idAgent)).getIdPersonne()).getIdPersonne();
         }else if (!action.equals("add")) {
-            HtmlDisplayer.processRequest(req, resp, "No person selected");
+            HtmlDisplayer.error(req, resp, "No person selected");
         }
 
         switch (action) {

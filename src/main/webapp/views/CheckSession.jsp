@@ -8,7 +8,7 @@
 <%
     HttpSession sess = request.getSession(false);
     if (sess == null || sess.getAttribute("idAgent") == null) {
-        HtmlDisplayer.processRequest(request, response, "session_expired.html");
+        HtmlDisplayer.error(request, response, "session_expired.html");
     }
 %>
 </body>
