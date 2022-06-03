@@ -7,7 +7,7 @@
     <head>
       <meta charset="utf-8">
       <title>Gestion des proprietaires</title>
-      <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
 
         <script>
             function updateCheckBoxes() {
@@ -17,6 +17,8 @@
                     var toDelete = document.getElementById("propertyToDelete");
                     toEdit.setAttribute("value", checkbox.getAttribute("name"));
                     toDelete.setAttribute("value", checkbox.getAttribute("name"));
+                    document.getElementById("btn_update").disabled = false;
+                    document.getElementById("btn_delete").disabled = false;
                 }
 
                 var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(:checked)');

@@ -19,6 +19,8 @@
                 var toDelete = document.getElementById("propertyToDelete");
                 toEdit.setAttribute("value", checkbox.getAttribute("name"));
                 toDelete.setAttribute("value", checkbox.getAttribute("name"));
+                document.getElementById("btn_update").disabled = false;
+                document.getElementById("btn_delete").disabled = false;
             }
 
             var checkboxes = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
@@ -44,18 +46,18 @@
 <header>
     <jsp:include page="../header.jsp"/>
 </header>
-
-<center>
-    <h1> Liste des biens immobilier</h1>
-</center>
-<div class="btn">
-    <a href="ajout.jsp" target="_self">
-        <button>Ajouter un bien</button>
-    </a>
-    <div id="droite">
-        <form action="/OverSeeImmobilier/ManagePropertyServlet" method="post">
-            <input type="hidden" id="propertyToEdit" name="propertyId" value="">
-            <input type="hidden" name="action" value="edit">
+<article>
+    <div style="text-align: center;">
+        <h1> Liste des biens immobilier</h1>
+    </div>
+    <div class="btn">
+        <a href="ajout.jsp" target="_self">
+            <button>Ajouter un bien</button>
+        </a>
+        <div id="droite">
+            <form action="/OverSeeImmobilier/ManagePropertyServlet" method="post">
+                <input type="hidden" id="propertyToEdit" name="propertyId" value="">
+                <input type="hidden" name="action" value="edit">
             <input type="submit" name="btn_update" id="btn_update" value="Modifier" disabled="true">
         </form>
         <form action="/OverSeeImmobilier/ManagePropertyServlet" method="post">
@@ -91,6 +93,6 @@
     }%>
     </tbody>
 </table>
-
+</article>
 </body>
 </html>
