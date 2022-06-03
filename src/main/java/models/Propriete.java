@@ -2,7 +2,6 @@ package models;
 
 
 import interfaces.HTMLable;
-import interfaces.SQLable;
 import lombok.Getter;
 import lombok.Setter;
 import tools.DatabaseConnector;
@@ -12,7 +11,7 @@ import java.util.Objects;
 
 @Getter
 @Setter
-public class Propriete implements SQLable, HTMLable {
+public class Propriete extends Personne implements HTMLable {
 
     private long numeroReference;
     private String adresse;
@@ -29,52 +28,6 @@ public class Propriete implements SQLable, HTMLable {
     private long idProprietaire;
 
 
-    @Override
-    public String getSQLInsert() {
-        return "INSERT INTO Propriete (numeroReference, adresse, ville, codePostal, type, nombreDePiece, superficie, etatDHabitation, garage, prixInitial, dateDisponibilite, idProprietaire) VALUES (" +
-                numeroReference + ", '" +
-                adresse + "', '" +
-                ville + "', " +
-                codePostal + ", '" +
-                type + "', " +
-                nombre_de_piece + ", " +
-                superficie + ", '" +
-                etat_d_habitation + "', " +
-                garage + ", " +
-                prixInitial + ", '" +
-                dateDisponibilite + "', " +
-                idProprietaire + ");";
-    }
-
-    @Override
-    public String getSQLUpdate() {
-        return "UPDATE Propriete SET numeroReference = " +
-                numeroReference + ", adresse = '" +
-                adresse + "', ville = '" +
-                ville + "', codePostal = " +
-                codePostal + ", type = '" +
-                type + "', nombreDePiece = " +
-                nombre_de_piece + ", superficie = " +
-                superficie + ", etatDHabitation = '" +
-                etat_d_habitation + "', garage = " +
-                garage + ", prixInitial = " +
-                prixInitial + ", dateDisponibilite = '" +
-                dateDisponibilite + "', idProprietaire = " +
-                idProprietaire + " WHERE numeroReference = " +
-                numeroReference + ";";
-    }
-
-    @Override
-    public String getSQLDelete() {
-        return "DELETE FROM Propriete WHERE numeroReference = " +
-                numeroReference + ";";
-    }
-
-    @Override
-    public String getSQLSelect() {
-        return "SELECT * FROM Propriete WHERE numeroReference = " +
-                numeroReference + ";";
-    }
 
     @Override
     public String toHTML() {

@@ -2,14 +2,13 @@ package models;
 
 
 import interfaces.HTMLable;
-import interfaces.SQLable;
 import lombok.Getter;
 import lombok.Setter;
 import tools.DatabaseConnector;
 
 @Getter
 @Setter
-public class Transaction implements SQLable, HTMLable {
+public class Transaction implements HTMLable {
 
     private long numeroReference;
     private long idAgentImmobilier;
@@ -20,44 +19,6 @@ public class Transaction implements SQLable, HTMLable {
     private long montantTotalTransaction;
     private String typeTransaction;
     private long prixVente;
-
-    @Override
-    public String getSQLInsert() {
-        return "INSERT INTO transactiontable (numeroReference, idAgentImmobilier, idPropriétaire, idClient, datevente, commission, montantTotalTransaction, typeTransaction, prixVente) VALUES (" +
-                numeroReference + ", " +
-                idAgentImmobilier + ", " +
-                idProprietaire + ", " +
-                idClient + ", " +
-                "\"" + datevente + "\", " +
-                "\"" + commission + "\", " +
-                montantTotalTransaction + ", " +
-                "\"" + typeTransaction + "\", " +
-                prixVente + ");";
-    }
-
-    @Override
-    public String getSQLUpdate() {
-        return "UPDATE transactiontable SET numeroReference = " +
-                numeroReference + ", idAgentImmobilier = " +
-                idAgentImmobilier + ", idPropriétaire = " +
-                idProprietaire + ", idClient = " +
-                idClient + ", datevente = " +
-                "\"" + datevente + "\", " +
-                "\"" + commission + "\", " +
-                montantTotalTransaction + ", " +
-                "\"" + typeTransaction + "\", " +
-                prixVente + ";";
-    }
-
-    @Override
-    public String getSQLDelete() {
-        return "DELETE FROM transactiontable WHERE numeroReference = " + numeroReference + ";";
-    }
-
-    @Override
-    public String getSQLSelect() {
-        return "SELECT * FROM transactiontable WHERE numeroReference = " + numeroReference + ";";
-    }
 
     public String toHTML() {
         Propriete p = DatabaseConnector.getProprieteById((int) numeroReference);
