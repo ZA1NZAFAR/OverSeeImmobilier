@@ -1,4 +1,5 @@
 <%@ page import="tools.DatabaseConnector" %>
+<%@ page import="tools.HtmlDisplayer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -21,10 +22,19 @@
 
     <img src="images/logo.png" style="position: relative; right: 0vw; width: 15%; height:15%"/>
 
-    <p> Bonjour
-        <%=DatabaseConnector.getPersonneById((int) DatabaseConnector.getAgentById(((Long) request.getSession().getAttribute("idAgent")).intValue()).getIdPersonne()).getNomComplet()%>
-        , que voulez-vous faire ?
-    </p>
+    <%
+        String name = null;
+        try {
+            name = DatabaseConnector.getPersonneById(
+                    (int) DatabaseConnector.getAgentById(
+                            ((Long) request.getSession().getAttribute("idAgent")).intValue()
+                    ).getIdPersonne()).getNomComplet();
+        } catch (Exception e) {
+            HtmlDisplayer.processRequest(request, response, "Session expired! Please log in again.");
+        }
+    %>
+
+    <p> Bonjour <%=name%>, que voulez-vous faire ? </p>
 
     <a href="biens/gestion.jsp" target="_self">
         <button style="font-size:2vw;">Gérer les biens</button>
