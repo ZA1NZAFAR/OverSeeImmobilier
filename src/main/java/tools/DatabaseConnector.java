@@ -7,26 +7,24 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseConnector {
-    private static final Connection dbConnection = ConnectionManager.getConnection();
 
 
     public static ResultSet executeQuery(String query) throws SQLException {
-        return dbConnection.createStatement().executeQuery(query);
+        return ConnectionManager.getConnection().createStatement().executeQuery(query);
     }
 
     public static void executeUpdate(String query) throws SQLException {
-        dbConnection.createStatement().executeUpdate(query);
+        ConnectionManager.getConnection().createStatement().executeUpdate(query);
     }
 
     public static void executeDelete(String query) throws SQLException {
-        dbConnection.createStatement().executeUpdate(query);
+        ConnectionManager.getConnection().createStatement().executeUpdate(query);
     }
 
 

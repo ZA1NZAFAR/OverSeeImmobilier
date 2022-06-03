@@ -19,6 +19,7 @@
 
         <% IDsDTO v = Helper.visitStringToDTO(request.getParameter("transactionString"));%>
         <% Transaction tr = DatabaseConnector.getTransactionUsing(v);%>
+        <% Propriete pr = DatabaseConnector.getProprieteById((int) tr.getNumeroReference());%>
 
         <form action="/OverSeeImmobilier/ManageTransactionServlet" method="post">
 
@@ -68,11 +69,10 @@
             <br/>
 
             <label id="lbl_prixVente">Prix de vente</label>
-            <input type="text" id="tf_prixVente" name="tf_prixVente" value=400>
+            <input type="text" id="tf_prixVente" name="tf_prixVente" value=<%=pr.getPrixInitial()%>>>
 
-            <label id="lbl_commission">Commision</label>
-            <input type="text" id="tf_commision" name="tf_commision" value=100>
-
+            <label id="lbl_commission">Commision [3% - 5%]</label>
+            <input type="text" id="tf_commision" name="tf_commision" value=<%=tr.getCommission()%>>
 
             <input type="hidden" name="action" value="update">
             <input type="hidden" name="transactionString" value="<%=v.toString()%>">

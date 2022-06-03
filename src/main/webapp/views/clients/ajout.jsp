@@ -73,28 +73,25 @@
             <label id="lbl_email">Email</label>
             <input type="text" id="tf_email" name="tf_email" value="">
 
-            <label for="estProp"> Est Proprietaire</label><input type="checkbox" id="estProp" name="estProp" value="estProp">
+            <label for="estProp"> Est Proprietaire</label><input type="checkbox" id="estProp" name="estProp"
+                                                                 value="estProp">
 
             <%if (DatabaseConnector.isAdmin(((Long) request.getSession().getAttribute("idAgent")).intValue() + "")) {%>
-            <label for="estAgent"> Est Agent</label><input type="checkbox" id="estAgent" name="estAgent" onclick="showAgentInfo();" value="">
+            <label for="estAgent"> Est Agent</label><input type="checkbox" id="estAgent" name="estAgent"
+                                                           onclick="showAgentInfo();" value="">
             <%}%>
 
-            <br/>
-            <br/>
-
             <label style="display: none" id="lbl_estAdmin"> Est Admin</label>
-            <input style="display: none" type="checkbox" id="estAdmin" name="estAdmin" >
+            <input style="display: none" type="checkbox" id="estAdmin" name="estAdmin">
 
             <label style="display: none" id="lbl_mdp"> Mot de passe</label>
-            <input style="display: none" type="password" id="mdp" name="mdp" >
+            <input style="display: none" type="password" id="mdp" name="mdp">
 
-            <label style="display: none" id="lbl_dateEmb">Date de naissance</label>
+            <label style="display: none" id="lbl_dateEmb">Date d'embauche</label>
             <input style="display: none" type="date" id="dateEmb" name="dateEmb">
 
             <label style="display: none" id="lbl_salaire">Salaire</label>
             <input style="display: none" type="text" id="salaire" name="salaire">
-
-
 
 
             <input type="hidden" name="action" value="add">

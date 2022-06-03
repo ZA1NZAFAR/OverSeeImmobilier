@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
     private static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static String CONNECTION_URL = "jdbc:mysql://remotemysql.com:3306/4g7LpRXOWZ?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static String CONNECTION_URL = "jdbc:mysql://remotemysql.com:3306/4g7LpRXOWZ?autoReconnect=true&useUnicode=true&useUnicode=yes&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static String DB_USERNAME = "4g7LpRXOWZ";
     private static String DB_PASSWORD = "2q6pXfV3DP";
 

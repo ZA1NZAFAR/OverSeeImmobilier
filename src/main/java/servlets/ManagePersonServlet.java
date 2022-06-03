@@ -52,7 +52,7 @@ public class ManagePersonServlet extends HttpServlet {
                         "ville = '" + req.getParameter("tf_ville") + "', " +
                         "codePostal = '" + req.getParameter("tf_cp") + "', " +
                         "numeroTel = '" + req.getParameter("tf_tel") + "', " +
-                        "email = '" + req.getParameter("email") + "' " +
+                        "email = '" + req.getParameter("tf_email") + "' " +
                         "WHERE idPersonne = " + personId);
                 DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Update").information("Personne " + personId).build());
                 resp.sendRedirect("views/clients/gestion.jsp");
@@ -94,12 +94,10 @@ public class ManagePersonServlet extends HttpServlet {
                 if (req.getParameter("estProp") != null) {
                     DatabaseConnector.executeUpdate("INSERT INTO Proprietaire (" +
                             "idProprietaire, " +
-                            "idPersonne, " +
-                            "nbBienPossedes)" +
+                            "idPersonne)" +
                             "VALUES (" +
                             (DatabaseConnector.getLastId("Proprietaire", "idProprietaire") + 1) + ", " +
-                            (DatabaseConnector.getLastId("Personne", "idPersonne")) + ", " +
-                            0 + ")");
+                            (DatabaseConnector.getLastId("Personne", "idPersonne")) + ")");
                     DatabaseConnector.log(Log.builder().idAgent((Long) req.getSession().getAttribute("idAgent")).action("Ajout").information("Proprietaire " + (DatabaseConnector.getLastId("Proprietaire", "idProprietaire"))).build());
 
                 }
