@@ -1,10 +1,11 @@
 package servlets;
 
 import lombok.SneakyThrows;
-import models.Log;
 import models.IDsDTO;
+import models.Log;
 import tools.DatabaseConnector;
 import tools.Helper;
+import tools.HtmlDisplayer;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +17,24 @@ public class ManageVisitesServlet extends HttpServlet {
     @SneakyThrows
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
+
+        // Import d'informations
+        String dtV = req.getParameter("dateVisite");
+        String hrV = req.getParameter("heureVisite");
+        String refB = req.getParameter("list_ref");
+        String clnt = req.getParameter("list_client");
+        String prp = req.getParameter("list_prop");
+        String agnt = req.getParameter("list_agent");
+
+        // Les checks
+        //Check if above null
+        if ((action.equals("add") || action.equals("update")) && (dtV == null || hrV == null || refB == null || clnt == null || prp == null || agnt == null)) {
+            HtmlDisplayer.warning(req, resp, "Veuillez remplir tous les champs!");
+        }
+
+
         IDsDTO visitDTO = null;
-        if(!action.equals("add"))
+        if (!action.equals("add"))
             visitDTO = Helper.visitStringToDTO(req.getParameter("visitString"));
         switch (action) {
             case "add":
@@ -29,12 +46,12 @@ public class ManageVisitesServlet extends HttpServlet {
                         "idProprietaire, " +
                         "idAgentImmobilier) " +
                         "VALUES ('" +
-                        req.getParameter("dateVisite") + "', '" +
-                        req.getParameter("heureVisite") + "', " +
-                        req.getParameter("list_ref") + ", " +
-                        req.getParameter("list_client") + ", " +
-                        req.getParameter("list_prop") + ", " +
-                        req.getParameter("list_agent") + ")");
+                        dtV + "', '" +
+                        hrV + "', " +
+                        refB + ", " +
+                        clnt + ", " +
+                        prp + ", " +
+                        agnt + ")");
                 DatabaseConnector.log(Log.builder().idAgent(Long.parseLong(req.getParameter("list_agent"))).action("Ajout").information("Visite").build());
                 resp.sendRedirect("views/visites/gestion.jsp");
                 break;
@@ -57,12 +74,12 @@ public class ManageVisitesServlet extends HttpServlet {
             case "update":
                 DatabaseConnector.executeUpdate("UPDATE Visite " +
                         "SET " +
-                        "dateVisite = '" + req.getParameter("dateVisite") + "', " +
-                        "heureVisite = '" + req.getParameter("heureVisite") + "', " +
-                        "numeroReference = " + req.getParameter("list_ref") + ", " +
-                        "idClient = " + req.getParameter("list_client") + ", " +
-                        "idProprietaire = " + req.getParameter("list_prop") + ", " +
-                        "idAgentImmobilier = " + req.getParameter("list_agent") + " " +
+                        "dateVisite = '" + dtV + "', " +
+                        "heureVisite = '" + hrV + "', " +
+                        "numeroReference = " + refB + ", " +
+                        "idClient = " + clnt + ", " +
+                        "idProprietaire = " + prp + ", " +
+                        "idAgentImmobilier = " + agnt + " " +
                         "WHERE " +
                         "numeroReference = " + visitDTO.getNumeroReferenceBien() + "" +
                         " AND " +
