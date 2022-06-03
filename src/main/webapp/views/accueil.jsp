@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<jsp:include page="CheckSession.jsp"/>
+
 <div style="width: 100%; height: 10vw;">
     <a href="../index.jsp"><img src="images/logOut.png"
                                 style="width: 3vw; height: 3vw; position: relative; left: 95%;"/> </a>

@@ -1,3 +1,5 @@
+<%@ page import="tools.DatabaseConnector" %>
+<%@ page import="tools.HtmlDisplayer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html>
@@ -22,6 +24,11 @@
 
 </head>
 <body>
+<%
+    request.getSession().invalidate();
+    session = null;
+    request.getSession().setAttribute("idAgent", null);
+%>
 
 
 <div style="text-align: center;">

@@ -43,6 +43,7 @@
 
 </head>
 <body>
+<jsp:include page="../CheckSession.jsp"/>
 <header>
     <jsp:include page="../header.jsp"/>
 </header>

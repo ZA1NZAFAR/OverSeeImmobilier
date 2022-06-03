@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.sendRedirect("/front-end/login.html");
+        resp.sendRedirect("index.jsp");
     }
 
 

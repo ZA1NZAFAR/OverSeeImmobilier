@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<jsp:include page="../CheckSession.jsp"/>
 <header>
     <jsp:include page="../header.jsp"/>
 </header>
