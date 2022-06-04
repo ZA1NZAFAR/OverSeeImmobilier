@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Gestion des clients</title>
+    <title>Modification d'une personne</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
