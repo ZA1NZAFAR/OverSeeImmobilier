@@ -10,11 +10,14 @@
 </head>
 <body>
 <jsp:include page="../CheckSession.jsp"/>
-<jsp:include page="../header.jsp"/>
+<header>
+    <jsp:include page="../header.jsp"/>
+</header>
+
+<br><br><br><br>
 
 
 <table>
-
     <thead>
     <tr>
         <th>idLog</th>
