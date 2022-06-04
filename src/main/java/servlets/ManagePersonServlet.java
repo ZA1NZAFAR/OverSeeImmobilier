@@ -32,16 +32,18 @@ public class ManagePersonServlet extends HttpServlet {
         String demb = req.getParameter("dateEmb");
 
         // Les checks
-        if ((action.equals("add") || action.equals("update")) && (nom == null || prnm == null || ddn == null || addr == null || vll == null || cp == null || tel == null || mel == null)) {
-            HtmlDisplayer.warning(req, resp, "Veuillez remplir tous les champs!");
-        } else if (cp.length() != 5) {
-            HtmlDisplayer.warning(req, resp, "Le code postal doit être composé de 5 chiffres!");
-        } else if (tel.length() != 10) {
-            HtmlDisplayer.warning(req, resp, "Le numéro de téléphone doit être composé de 10 chiffres!");
-        } else if (mel.length() != 0 && !mel.contains("@")) {
-            HtmlDisplayer.warning(req, resp, "L'adresse email doit être valide!");
-        } else if (action.equals("add") && (mdp == null || slr == null || demb == null)) {
-            HtmlDisplayer.warning(req, resp, "Veuillez remplir tous les champs de l'agent immobilier!");
+        if ((action.equals("add") || action.equals("update"))) {
+            if (nom == null || prnm == null || ddn == null || addr == null || vll == null || cp == null || tel == null || mel == null) {
+                HtmlDisplayer.warning(req, resp, "Veuillez remplir tous les champs!");
+            } else if (cp.length() != 5) {
+                HtmlDisplayer.warning(req, resp, "Le code postal doit être composé de 5 chiffres!");
+            } else if (tel.length() != 10) {
+                HtmlDisplayer.warning(req, resp, "Le numéro de téléphone doit être composé de 10 chiffres!");
+            } else if (mel.length() != 0 && !mel.contains("@")) {
+                HtmlDisplayer.warning(req, resp, "L'adresse email doit être valide!");
+            } else if (action.equals("add") && (mdp == null || slr == null || demb == null)) {
+                HtmlDisplayer.warning(req, resp, "Veuillez remplir tous les champs de l'agent immobilier!");
+            }
         }
 
         // Identification de ka personne (si elle existe)
