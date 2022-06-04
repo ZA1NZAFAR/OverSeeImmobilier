@@ -1,11 +1,11 @@
 package models;
 
-import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-
-@Builder
-public class Log {
-
+@Getter
+@Setter
+public class LogDisplay {
     private long idLog;
     private String action;
     private String information;

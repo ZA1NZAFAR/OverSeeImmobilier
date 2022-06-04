@@ -57,6 +57,10 @@
     <a href="agents/gestion.jsp" target="_self">
         <button style="font-size:2vw;">Gérer les agents</button>
     </a>
+
+    <a href="logs/gestion.jsp" target="_self">
+        <button style="font-size:2vw;">Logs</button>
+    </a>
     <%}%>
 </div>
 

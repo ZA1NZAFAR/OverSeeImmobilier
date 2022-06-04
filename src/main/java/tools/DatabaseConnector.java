@@ -102,6 +102,7 @@ public class DatabaseConnector {
         return prop;
     }
 
+    // Importez toutes les valeurs
     public static List<AgentImmobilier> getAllAgentImmobiliers() {
         List<AgentImmobilier> agentImmobiliers = new ArrayList<>();
         try {
@@ -160,6 +161,18 @@ public class DatabaseConnector {
             throw new RuntimeException("Could not get all proprietes", e);
         }
         return proprietaires;
+    }
+
+    public static List<LogDisplay> getAllLogs() {
+        List<LogDisplay> logs;
+        try {
+            QueryRunner run = new QueryRunner(ConnectionManager.getDataSource());
+            ResultSetHandler<List<LogDisplay>> h = new BeanListHandler<>(LogDisplay.class);
+            logs = run.query("SELECT * FROM Log ORDER BY idLog DESC", h);
+        } catch (SQLException e) {
+            throw new RuntimeException("Could not get all logs", e);
+        }
+        return logs;
     }
 
     public static Propriete getProprieteById(int idPropriete) {
