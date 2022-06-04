@@ -19,7 +19,7 @@ public class Propriete extends Personne implements HTMLable {
     private long codePostal;
     private String type;
     private long nombre_de_piece;
-    private double superficie;
+    private long superficie;
     private String etat_d_habitation;
     private long garage;
     private long prixInitial;

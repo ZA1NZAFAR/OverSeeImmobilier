@@ -33,19 +33,20 @@ public class ManagePropertyServlet extends HttpServlet {
         String locVe = req.getParameter("tf_locVent");
 
         // Les checks
-        if (action.equals("add") && (adr == null || vll == null || cp == null || type == null || piece == null || sprf == null || etat == null || garage == null || prx == null || dte == null || locVe == null)) {
-            HtmlDisplayer.warning(req, resp, "Veuillez remplir tous les champs!");
-        } else if (cp.length() != 5) {
-            HtmlDisplayer.warning(req, resp, "Le code postal doit être composé de 5 chiffres!");
-        } else if (Integer.parseInt(piece) < 1)
-            HtmlDisplayer.warning(req, resp, "Le nombre de pièces doit être supérieur à 0!");
-        else if (Integer.parseInt(sprf) < 1)
-            HtmlDisplayer.warning(req, resp, "La superficie doit être supérieur à 0!");
-        else if (Integer.parseInt(garage) < 0)
-            HtmlDisplayer.warning(req, resp, "Le nombre de garage doit être supérieur ou égal à 0!");
-        else if (Integer.parseInt(prx) < 0)
-            HtmlDisplayer.warning(req, resp, "Le prix doit être supérieur ou égal à 0!");
-
+        if (action.equals("add")) {
+            if (adr == null || vll == null || cp == null || type == null || piece == null || sprf == null || etat == null || garage == null || prx == null || dte == null || locVe == null) {
+                HtmlDisplayer.warning(req, resp, "Veuillez remplir tous les champs!");
+            } else if (cp.length() != 5) {
+                HtmlDisplayer.warning(req, resp, "Le code postal doit être composé de 5 chiffres!");
+            } else if (Integer.parseInt(piece) < 1)
+                HtmlDisplayer.warning(req, resp, "Le nombre de pièces doit être supérieur à 0!");
+            else if (Integer.parseInt(sprf) < 1)
+                HtmlDisplayer.warning(req, resp, "La superficie doit être supérieur à 0!");
+            else if (Integer.parseInt(garage) < 0)
+                HtmlDisplayer.warning(req, resp, "Le nombre de garage doit être supérieur ou égal à 0!");
+            else if (Integer.parseInt(prx) < 0)
+                HtmlDisplayer.warning(req, resp, "Le prix doit être supérieur ou égal à 0!");
+        }
 
         String propertyId = req.getParameter("propertyId");
         switch (action) {

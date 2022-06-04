@@ -43,8 +43,8 @@
             <select name="list_type" id="list_type">
                 <option></option>
                 <option>Neuf</option>
-                <option>Très bon état</option>
-                <option>Bon état</option>
+                <option>Tres Bon Etat</option>
+                <option>Bon Etat</option>
             </select>
             <br/>
 

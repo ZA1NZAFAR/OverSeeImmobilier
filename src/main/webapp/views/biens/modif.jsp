@@ -43,13 +43,13 @@
                    value="<%=p.getNombre_de_piece()%>"/>
 
             <label id="lbl_superficie">Superficie</label>
-            <input type="text" id="tf_superficie" name="tf_superficie" value="<%=p.getSuperficie()%>">
+            <input type="number" id="tf_superficie" name="tf_superficie" value="<%=p.getSuperficie()%>">
 
             <label id="lbl_etatHab">Etat d'habitation</label>
             <select name="list_type" id="list_type">
-                <option>Bon état</option>
+                <option>Bon Etat</option>
                 <option>Neuf</option>
-                <option>Très bon état</option>
+                <option>Tres Bon Etat</option>
             </select>
 
             <label id="lbl_garage">Garage</label>

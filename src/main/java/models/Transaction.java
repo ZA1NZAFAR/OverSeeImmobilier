@@ -33,7 +33,7 @@ public class Transaction implements HTMLable {
                 "<td>" + p.getPrixInitial() + "</td>" +
                 "<td>" + prixVente + "</td>" +
                 "<td>" + commission + "</td>" +
-                "<td>" + ((prixVente + ((prixVente / 100) * 3)) + 1000) + "</td>" +
+                "<td>" + ((prixVente + ((prixVente / 100) * commission)) + 1000) + "</td>" +
                 "</tr>";
     }
 }
